@@ -1,2 +1,2 @@
 # SistemaAbstrato
-Sistema desenvolvido para matéria de LPOO
+Front-end do sistema desenvolvido para matéria de LPOO
