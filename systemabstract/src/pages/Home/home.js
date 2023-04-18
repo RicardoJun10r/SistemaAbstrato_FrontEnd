@@ -1,8 +1,10 @@
 import React from "react";
+import VerticalNavBar from "../../components/NavBar/VerticalNavBar";
 
 const Home = () => {
     return(
         <div>
+            <VerticalNavBar/>
             <h1>
                 home
             </h1>
