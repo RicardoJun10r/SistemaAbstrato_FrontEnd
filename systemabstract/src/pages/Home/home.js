@@ -6,7 +6,7 @@ const Home = () => {
         <div>
             <VerticalNavBar/>
             <h1>
-                home
+                Home
             </h1>
         </div>
     )
