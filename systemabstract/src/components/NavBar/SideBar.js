@@ -17,8 +17,6 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import AccountCircle from '@mui/icons-material/AccountCircle';
@@ -29,6 +27,7 @@ import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
 import PaidIcon from '@mui/icons-material/Paid';
 import LogoutIcon from '@mui/icons-material/Logout';
 import SyncIcon from '@mui/icons-material/Sync';
+import HomeIcon from '@mui/icons-material/Home';
 
 
 const drawerWidth = 240;
@@ -205,7 +204,7 @@ export default function SideBar() {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar position="fixed" open={open}>
+      <AppBar  sx={{backgroundColor:'#bababa'}} position="fixed" open={open}>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -219,6 +218,9 @@ export default function SideBar() {
           >
             <MenuIcon />
           </IconButton>
+          <IconButton size='large'>
+                <HomeIcon/>
+            </IconButton>
           <Typography variant="h6" noWrap component="div">
             Abstract System
           </Typography>
