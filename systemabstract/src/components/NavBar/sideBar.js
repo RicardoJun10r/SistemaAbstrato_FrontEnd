@@ -27,7 +27,7 @@ import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
 import PaidIcon from '@mui/icons-material/Paid';
 import LogoutIcon from '@mui/icons-material/Logout';
 import SyncIcon from '@mui/icons-material/Sync';
-import HomeIcon from '@mui/icons-material/Home';
+import DryCleaningIcon from '@mui/icons-material/DryCleaning';
 
 
 const drawerWidth = 240;
@@ -218,12 +218,9 @@ export default function SideBar() {
           >
             <MenuIcon />
           </IconButton>
-          <IconButton size='large'>
-                <HomeIcon/>
+          <IconButton>
+                <DryCleaningIcon sx={{width: '50px', height: '50px'}}/>
             </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            Abstract System
-          </Typography>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             <IconButton
