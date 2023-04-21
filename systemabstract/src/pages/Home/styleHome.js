@@ -1,5 +1,5 @@
 
-export const dashboardStyle = {
+export const homeStyle = {
     'backgroundColor': '#EEF9FF',
     'fontFamily': 'roboto',
     'display': 'flex',

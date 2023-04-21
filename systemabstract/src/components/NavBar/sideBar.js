@@ -97,7 +97,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
-export default function SideBar() {
+export default function SideBar({index}) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -192,7 +192,7 @@ export default function SideBar() {
           aria-label="account of current user"
           aria-controls="primary-search-account-menu"
           aria-haspopup="true"
-          color="inherit"
+          color="black"
         >
           <AccountCircle />
         </IconButton>
@@ -230,7 +230,7 @@ export default function SideBar() {
               aria-controls={menuId}
               aria-haspopup="true"
               onClick={handleProfileMenuOpen}
-              color="inherit"
+              color="black"
             >
               <AccountCircle />
             </IconButton>
@@ -242,7 +242,7 @@ export default function SideBar() {
               aria-controls={mobileMenuId}
               aria-haspopup="true"
               onClick={handleMobileMenuOpen}
-              color="inherit"
+              color="black"
             >
               <MoreIcon />
             </IconButton>
