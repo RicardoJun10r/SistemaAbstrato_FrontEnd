@@ -1,13 +1,12 @@
 import React from "react";
 import VerticalNavBar from "../../components/NavBar/VerticalNavBar";
+import SideBar from "../../components/NavBar/SideBar";
 
 const Home = () => {
     return(
         <div>
-            <VerticalNavBar/>
-            <h1>
-                Home
-            </h1>
+            {/* <VerticalNavBar/> */}
+            <SideBar />
         </div>
     )
 }
