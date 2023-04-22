@@ -30,6 +30,7 @@ const Item = styled(Paper)(({ theme }) => ({
     padding: theme.spacing(1),
     textAlign: 'start',
     color: theme.palette.text.secondary,
+    borderRadius: '10px'
   }));
 
 const dados = {
@@ -46,7 +47,7 @@ const DashBoard = () => {
     return(
         <div style={dashBoardStyle}>
             <Grid container justifyContent='space-between' spacing={4} > {/* VENDAS */}
-                <Grid item xs={6}>
+                <Grid item xs={8}>
                     <Item>
                         <Typography sx={{fontFamily: 'roboto', fontSize: '1.5em', fontWeight: 'bold', color: 'green'}}>
                             Vendas
@@ -100,7 +101,7 @@ const DashBoard = () => {
                         </Stack>
                     </Item> 
                 </Grid>
-                <Grid item xs={6}> {/* COMPRAS */}
+                <Grid item xs={8}> {/* COMPRAS */}
                     <Item>
                         <Typography sx={{fontFamily: 'roboto', fontSize: '1.5em', fontWeight: 'bold', color: 'red'}}>
                             Compras
@@ -148,7 +149,7 @@ const DashBoard = () => {
                         </Stack>
                     </Item>
                 </Grid>
-                <Grid item xs={6}> { /* VENDAS / COMPRAS */ }
+                <Grid item xs={8}> { /* VENDAS / COMPRAS */ }
                     <Item>
                         <Typography sx={{fontFamily: 'roboto', fontSize: '1.5em', fontWeight: 'bolder'}}>
                             Vendas / Compras
@@ -156,7 +157,7 @@ const DashBoard = () => {
                         grafico
                     </Item>
                 </Grid>
-                <Grid item xs={6}> {/* PEDIDOS */}
+                <Grid item xs={4}> {/* PEDIDOS */}
                     <Item>
                         <Typography sx={{fontFamily: 'roboto', fontSize: '1.5em', fontWeight: 'bolder'}}>
                             Pedidos
