@@ -1,14 +1,14 @@
 import React from "react";
 
 
-const Produtos = () => {
+const Estoque = () => {
     return(
         <div>
             <h1>
-                Produtos
+                Estoque
             </h1>
         </div>
     )
 }
 
-export default Produtos;
+export default Estoque;

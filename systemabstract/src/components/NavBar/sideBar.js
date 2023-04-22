@@ -257,7 +257,7 @@ export default function SideBar({index}) {
         </DrawerHeader>
         <Divider />
         <List>
-          {['Dashboard', 'Produtos', 'Clientes', 'Transações'].map((text, index) => (
+          {['Dashboard', 'Estoque', 'Clientes', 'Transações'].map((text, index) => (
             <ListItem key={text} disablePadding sx={{ display: 'block' }}>
               <ListItemButton
                 sx={{

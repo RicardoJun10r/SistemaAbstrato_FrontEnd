@@ -15,28 +15,18 @@ const bull = (
   </Box>
 );
 
-export default function CardBalanco() {
+export default function CardBalanco({ icon, valor, tipo }) {
   return (
     <Card sx={{ minWidth: 275 }}>
       <CardContent>
-        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          Word of the Day
-        </Typography>
+        {icon}
         <Typography variant="h5" component="div">
-          be{bull}nev{bull}o{bull}lent
+          R$ {valor}
         </Typography>
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
-          adjective
-        </Typography>
-        <Typography variant="body2">
-          well meaning and kindly.
-          <br />
-          {'"a benevolent smile"'}
+          {tipo}
         </Typography>
       </CardContent>
-      <CardActions>
-        <Button size="small">Learn More</Button>
-      </CardActions>
     </Card>
   );
 }

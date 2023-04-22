@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import SideBar from "../../components/NavBar/sideBar";
 import { homeStyle } from "./styleHome";
 import DashBoard from "../DashBoard/dashboard";
-import Produtos from "../Produtos/produtos";
+import Estoque from "../Estoque/estoque";
 import Clientes from "../Clientes/clientes";
 import Transacoes from "../Transacoes/transacoes";
+import { Container } from "@mui/material";
 
 const Home = () => {
 
@@ -15,7 +16,7 @@ const Home = () => {
             case 0:
                 return <DashBoard />;
             case 1:
-                return <Produtos />;
+                return <Estoque />;
             case 2:
                 return <Clientes />;
             case 3:
@@ -27,12 +28,14 @@ const Home = () => {
 
     return(
         <div style={homeStyle}>
-            <header>
-                <SideBar index={setIndex}/>
-            </header>
-            <body>
-                {handlePage(index)}
-            </body>
+            <Container fixed>
+                <header>
+                    <SideBar index={setIndex}/>
+                </header>
+                <body>
+                    {handlePage(index)}
+                </body>
+            </Container>
         </div>
     )
 }
