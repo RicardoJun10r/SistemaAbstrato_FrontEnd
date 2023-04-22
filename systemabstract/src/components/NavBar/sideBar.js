@@ -96,7 +96,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
-export default function SideBar({index}) {
+export default function SideBar({setIndex}) {
 
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -258,7 +258,7 @@ export default function SideBar({index}) {
         <Divider />
         <List>
           {['Dashboard', 'Estoque', 'Clientes', 'Transações'].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
+            <ListItem key={text} onClick={() => setIndex(index)} disablePadding sx={{ display: 'block' }}>
               <ListItemButton
                 sx={{
                   minHeight: 48,

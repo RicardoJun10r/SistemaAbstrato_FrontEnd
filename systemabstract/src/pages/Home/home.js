@@ -30,7 +30,7 @@ const Home = () => {
         <div style={homeStyle}>
             <Container fixed>
                 <header>
-                    <SideBar index={setIndex}/>
+                    <SideBar setIndex={setIndex}/>
                 </header>
                 <body>
                     {handlePage(index)}
