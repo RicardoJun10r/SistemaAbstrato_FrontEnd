@@ -1,13 +1,16 @@
+import { Box, Typography } from "@mui/material";
 import React from "react";
+import { estoqueStyle } from "./estoqueStyle";
+
 
 
 const Estoque = () => {
     return(
-        <div>
-            <h1>
+        <Box sx={estoqueStyle}>
+            <Typography>
                 Estoque
-            </h1>
-        </div>
+            </Typography>
+        </Box>
     )
 }
 
