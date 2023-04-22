@@ -1,3 +1,4 @@
 export const estoqueStyle = {
-    'display': 'flex'
+    'height': '80vh',
+    'width': '600px'
 }
