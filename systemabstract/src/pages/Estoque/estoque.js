@@ -6,10 +6,10 @@ import { inventario } from "../../api/api";
 const Estoque = () => {
     return(
         <Box sx={estoqueStyle}>
-            {inventario?.map((estoque, index) => {
+            {inventario?.map((produto, index) => {
                 return(
                     <Typography>
-                        {estoque.nome}
+                        {produto.nome}
                     </Typography>
                 )
             })}
