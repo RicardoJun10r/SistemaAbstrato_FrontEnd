@@ -1,12 +1,12 @@
-import React from "react";
-import { List, ListItem } from "@mui/material";
+// import React from "react";
+// import { List, ListItem } from "@mui/material";
 
-const ListarProdutos = ({props}) => {
-    return(
-        <List>
+// const ListarProdutos = ({props}) => {
+//     return(
+//         <List>
             
-        </List>
-    )
-}
+//         </List>
+//     )
+// }
 
-export default ListarProdutos;
+// export default ListarProdutos;

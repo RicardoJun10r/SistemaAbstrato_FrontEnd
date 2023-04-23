@@ -8,12 +8,12 @@ import {
     ListItemAvatar,
     ListItemText,
     Divider,
-    Avatar
+    Avatar,
+    Stack,
+    Paper
     } from "@mui/material";
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import { styled } from '@mui/material/styles';
-import Paper from '@mui/material/Paper';
-import Stack from '@mui/material/Stack';
 import SellIcon from '@mui/icons-material/Sell';
 import ReceiptIcon from '@mui/icons-material/Receipt';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';

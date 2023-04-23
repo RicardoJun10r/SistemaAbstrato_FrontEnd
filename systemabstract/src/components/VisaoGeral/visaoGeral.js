@@ -1,20 +1,18 @@
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography, Paper } from "@mui/material";
 import React, { useState, useEffect } from "react";
+import styled from "@emotion/styled";
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: '#fff',
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
     textAlign: 'center',
-    color: theme.palette.text.secondary,
     borderRadius: '10px'
-  }));
+}));
 
 const tratarDados = {
     total_categorias: 0,
     total_Produtos: 0,
     total_estoque_baixo: 0,
-    produto_maio_estoque: '',
+    produto_maior_estoque: '',
     produto_estoque_critico: ''
 }
 
@@ -24,25 +22,22 @@ const VisaoGeral = ({props}) => {
 
     const [dados, setDados] = useState(tratarDados);
 
-    // const contarCategorias = (produtos) => {
-    //     let cont
-    //     for(let i = 0; i < produtos.length; i++){
-    //         let produto_vez = produtos[i]
-    //         for(let j = 0; j < produtos.length; j++){
-
-    //         }
-    //     }
-
-    // }
+    const contarCategorias = (produtos) => {
+        const counts = {};
+        let cont = 0;
+        produtos.forEach(function (x) { counts[x.categoria] = (counts[x.categoria] || 0) + 1; cont++; });
+        console.log(counts)
+        console.log(cont)
+    }
 
     useEffect(() => {
-
+        contarCategorias(produtos)
     }, [produtos])
     
 
     return(
         <Box>
-            <Stack direction='row'>
+            <Stack item direction='row'>
                 <Item>
                     <Typography>
                         Tipos de Categorias
