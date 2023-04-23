@@ -38,13 +38,13 @@ export const inventario = [
     {
         nome: 'feijao',
         preco: 12,
-        quantidade: 96,
+        quantidade: 3,
         categoria: 'legume'
     },
     {
         nome: 'arroz',
         preco: 12,
-        quantidade: 36,
+        quantidade: 4,
         categoria: 'comida'
     }
 ]

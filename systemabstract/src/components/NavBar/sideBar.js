@@ -99,10 +99,15 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 export default function SideBar({setIndex}) {
 
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
+
+  const [open, setOpen] = useState(false);
 
   const handleDrawerOpen = () => {
     setOpen(true);
+  };
+
+  const handleDrawerClose = () => {
+    setOpen(false);
   };
 
   const handleIcons = (index) => {
@@ -119,10 +124,6 @@ export default function SideBar({setIndex}) {
             return <SyncIcon />;
     }
   }
-
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
 
   const [anchorEl, setAnchorEl] = useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);

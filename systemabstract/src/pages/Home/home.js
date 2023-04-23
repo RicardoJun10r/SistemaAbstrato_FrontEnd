@@ -28,14 +28,12 @@ const Home = () => {
 
     return(
         <div style={homeStyle}>
-            <Container fixed>
-                <header>
-                    <SideBar setIndex={setIndex}/>
-                </header>
-                <body>
+            <React.Fragment>
+                <SideBar setIndex={setIndex}/>
+                <Container maxWidth="xl">
                     {handlePage(index)}
-                </body>
-            </Container>
+                </Container>
+            </React.Fragment>
         </div>
     )
 }

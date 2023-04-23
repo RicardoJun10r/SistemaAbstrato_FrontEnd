@@ -10,7 +10,7 @@ import {
     Divider,
     Avatar,
     Stack,
-    Paper
+    Box
     } from "@mui/material";
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import { styled } from '@mui/material/styles';
@@ -24,13 +24,11 @@ import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import ChecklistRtlIcon from '@mui/icons-material/ChecklistRtl';
 import TabelaMaisVendidos from "../../components/Table/tabelaMaisVendidos";
 
-const Item = styled(Paper)(({ theme }) => ({
+const Item = styled(Box)(({ theme }) => ({
     backgroundColor: '#fff',
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
     textAlign: 'start',
-    color: theme.palette.text.secondary,
-    borderRadius: '10px'
+    borderRadius: '10px',
+    padding: '10px 10px 10px 10px'
   }));
 
 const dados = {
@@ -49,7 +47,7 @@ const DashBoard = () => {
             <Grid container justifyContent='space-between' spacing={4} > {/* VENDAS */}
                 <Grid item xs={8}>
                     <Item>
-                        <Typography sx={{fontFamily: 'roboto', fontSize: '1.5em', fontWeight: 'bold', color: 'green'}}>
+                        <Typography sx={{fontFamily: 'roboto', fontSize: '1.5em', color: 'green'}}>
                             Vendas
                         </Typography>
                         <Stack direction="row" spacing={2}>
@@ -82,7 +80,7 @@ const DashBoard = () => {
                 </Grid>
                 <Grid item xs={4}> {/* ESTOQUE */} 
                     <Item>
-                        <Typography sx={{fontFamily: 'roboto', fontSize: '1.5em', fontWeight: 'bolder'}}>
+                        <Typography sx={{fontFamily: 'roboto', fontSize: '1.5em'}}>
                             Estoque
                         </Typography>
                         <Stack direction="row" spacing={2}>
@@ -103,7 +101,7 @@ const DashBoard = () => {
                 </Grid>
                 <Grid item xs={8}> {/* COMPRAS */}
                     <Item>
-                        <Typography sx={{fontFamily: 'roboto', fontSize: '1.5em', fontWeight: 'bold', color: 'red'}}>
+                        <Typography sx={{fontFamily: 'roboto', fontSize: '1.5em', color: 'red'}}>
                             Compras
                         </Typography>
                         <Stack direction="row" spacing={2}>
@@ -130,7 +128,7 @@ const DashBoard = () => {
                 </Grid>
                 <Grid item xs={4}> {/* PRODUTOS */}
                     <Item>
-                        <Typography sx={{fontFamily: 'roboto', fontSize: '1.5em', fontWeight: 'bolder'}}>
+                        <Typography sx={{fontFamily: 'roboto', fontSize: '1.5em'}}>
                             Produtos
                         </Typography>
                         <Stack direction="row" spacing={2}>
@@ -151,7 +149,7 @@ const DashBoard = () => {
                 </Grid>
                 <Grid item xs={8}> { /* VENDAS / COMPRAS */ }
                     <Item>
-                        <Typography sx={{fontFamily: 'roboto', fontSize: '1.5em', fontWeight: 'bolder'}}>
+                        <Typography sx={{fontFamily: 'roboto', fontSize: '1.5em'}}>
                             Vendas / Compras
                         </Typography>
                         grafico
@@ -159,7 +157,7 @@ const DashBoard = () => {
                 </Grid>
                 <Grid item xs={4}> {/* PEDIDOS */}
                     <Item>
-                        <Typography sx={{fontFamily: 'roboto', fontSize: '1.5em', fontWeight: 'bolder'}}>
+                        <Typography sx={{fontFamily: 'roboto', fontSize: '1.5em'}}>
                             Pedidos
                         </Typography>
                         grafico
@@ -167,7 +165,7 @@ const DashBoard = () => {
                 </Grid>
                 <Grid item xs={8}> {/* PRODUTOS MAIS VENDIDOS */}
                     <Item>
-                        <Typography sx={{fontFamily: 'roboto', fontSize: '1.5em', fontWeight: 'bolder'}}>
+                        <Typography sx={{fontFamily: 'roboto', fontSize: '1.5em'}}>
                             Produtos mais vendidos
                         </Typography>
                         <TabelaMaisVendidos />
@@ -175,13 +173,13 @@ const DashBoard = () => {
                 </Grid>
                 <Grid item xs={4}> {/* ESTOQUE BAIXO */}
                     <Item>
-                        <Typography sx={{fontFamily: 'roboto', fontSize: '1.5em', fontWeight: 'bolder'}}>
+                        <Typography sx={{fontFamily: 'roboto', fontSize: '1.5em'}}>
                             Estoque Baixo
                         </Typography>
                         <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
                             <ListItem alignItems="flex-start">
                                 <ListItemAvatar>
-                                    <Avatar alt="Imagem" src="/static/images/avatar/1.jpg" />
+                                    <Avatar alt="Imagem" src="" />
                                 </ListItemAvatar>
                                 <ListItemText
                                     primary="Tomate"
