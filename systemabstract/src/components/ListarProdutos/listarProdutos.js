@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import TabelaProdutos from "../Table/tabelaProdutos";
-import { Box, Button, IconButton, ButtonGroup, Grid } from "@mui/material";
+import { Box, IconButton, ButtonGroup, Grid } from "@mui/material";
 import styled from "@emotion/styled";
 import ModalVer from "../Modal/modalVer";
 import PreviewIcon from '@mui/icons-material/Preview';
