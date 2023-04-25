@@ -23,6 +23,7 @@ import FlightLandIcon from '@mui/icons-material/FlightLand';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import ChecklistRtlIcon from '@mui/icons-material/ChecklistRtl';
 import TabelaMaisVendidos from "../../components/Table/tabelaMaisVendidos";
+import GraficoPedidos from "../../components/Graficos/graficoEmLinha";
 
 const Item = styled(Box)(({ theme }) => ({
     backgroundColor: '#fff',
@@ -160,7 +161,7 @@ const DashBoard = () => {
                         <Typography sx={{fontFamily: 'roboto', fontSize: '1.5em'}}>
                             Pedidos
                         </Typography>
-                        grafico
+                        <GraficoPedidos />
                     </Item>
                 </Grid>
                 <Grid item xs={8}> {/* PRODUTOS MAIS VENDIDOS */}
