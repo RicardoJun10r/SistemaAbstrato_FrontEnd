@@ -1,5 +1,5 @@
 
 export const dashBoardStyle =  {
-    'height': '80vh',
-    'backgroundColor': '#EEF9FF'
+    'height': '85vh',
+    'backgroundColor': '#EEF9FF',
 }

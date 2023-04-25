@@ -10,7 +10,8 @@ import {
     Divider,
     Avatar,
     Stack,
-    Box
+    Box,
+    Paper
     } from "@mui/material";
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import { styled } from '@mui/material/styles';
@@ -24,6 +25,7 @@ import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import ChecklistRtlIcon from '@mui/icons-material/ChecklistRtl';
 import TabelaMaisVendidos from "../../components/Table/tabelaMaisVendidos";
 import GraficoPedidos from "../../components/Graficos/graficoEmLinha";
+import GraficoVendasCompras from "../../components/Graficos/graficoEmColuna";
 
 const Item = styled(Box)(({ theme }) => ({
     backgroundColor: '#fff',
@@ -31,6 +33,14 @@ const Item = styled(Box)(({ theme }) => ({
     borderRadius: '10px',
     padding: '10px 10px 10px 10px'
   }));
+
+const ItemOutside = styled(Paper)(({ theme }) => ({
+    backgroundColor: '#fff',
+    textAlign: 'center',
+    borderRadius: '10px',
+    padding: '10px 10px 10px 10px',
+    border: '0.1px solid black'
+}));
 
 const dados = {
     quantidade: 48,
@@ -45,10 +55,10 @@ const DashBoard = () => {
 
     return(
         <div style={dashBoardStyle}>
-            <Grid container justifyContent='space-between' spacing={4} > {/* VENDAS */}
-                <Grid item xs={8}>
-                    <Item>
-                        <Typography sx={{fontFamily: 'roboto', fontSize: '1.5em', color: 'green'}}>
+            <Grid container justifyContent='space-evenly' spacing={6}>
+                <Grid item xs={8}>  {/* VENDAS */}
+                    <ItemOutside>
+                        <Typography sx={{fontFamily: 'roboto', fontSize: '1.8em'}}>
                             Vendas
                         </Typography>
                         <Stack direction="row" spacing={2}>
@@ -77,11 +87,11 @@ const DashBoard = () => {
                                 </Typography>
                             </Item>
                         </Stack>
-                    </Item>
+                    </ItemOutside>
                 </Grid>
                 <Grid item xs={4}> {/* ESTOQUE */} 
-                    <Item>
-                        <Typography sx={{fontFamily: 'roboto', fontSize: '1.5em'}}>
+                    <ItemOutside>
+                        <Typography sx={{fontFamily: 'roboto', fontSize: '1.8em'}}>
                             Estoque
                         </Typography>
                         <Stack direction="row" spacing={2}>
@@ -98,11 +108,11 @@ const DashBoard = () => {
                                 </Typography>
                             </Item>
                         </Stack>
-                    </Item> 
+                    </ItemOutside> 
                 </Grid>
                 <Grid item xs={8}> {/* COMPRAS */}
-                    <Item>
-                        <Typography sx={{fontFamily: 'roboto', fontSize: '1.5em', color: 'red'}}>
+                    <ItemOutside>
+                        <Typography sx={{fontFamily: 'roboto', fontSize: '1.8em'}}>
                             Compras
                         </Typography>
                         <Stack direction="row" spacing={2}>
@@ -125,11 +135,11 @@ const DashBoard = () => {
                                 </Typography>
                             </Item>
                         </Stack>
-                    </Item>
+                    </ItemOutside>
                 </Grid>
                 <Grid item xs={4}> {/* PRODUTOS */}
-                    <Item>
-                        <Typography sx={{fontFamily: 'roboto', fontSize: '1.5em'}}>
+                    <ItemOutside>
+                        <Typography sx={{fontFamily: 'roboto', fontSize: '1.8em'}}>
                             Produtos
                         </Typography>
                         <Stack direction="row" spacing={2}>
@@ -146,35 +156,35 @@ const DashBoard = () => {
                                 </Typography>
                             </Item>
                         </Stack>
-                    </Item>
+                    </ItemOutside>
                 </Grid>
                 <Grid item xs={8}> { /* VENDAS / COMPRAS */ }
-                    <Item>
-                        <Typography sx={{fontFamily: 'roboto', fontSize: '1.5em'}}>
+                    <ItemOutside>
+                        <Typography sx={{fontFamily: 'roboto', fontSize: '1.8em'}}>
                             Vendas / Compras
                         </Typography>
-                        grafico
-                    </Item>
+                        <GraficoVendasCompras />
+                    </ItemOutside>
                 </Grid>
                 <Grid item xs={4}> {/* PEDIDOS */}
-                    <Item>
-                        <Typography sx={{fontFamily: 'roboto', fontSize: '1.5em'}}>
+                    <ItemOutside>
+                        <Typography sx={{fontFamily: 'roboto', fontSize: '1.8em'}}>
                             Pedidos
                         </Typography>
                         <GraficoPedidos />
-                    </Item>
+                    </ItemOutside>
                 </Grid>
-                <Grid item xs={8}> {/* PRODUTOS MAIS VENDIDOS */}
-                    <Item>
-                        <Typography sx={{fontFamily: 'roboto', fontSize: '1.5em'}}>
+                <Grid item xs={8} sx={{backgroundColor: '#EEF9FF'}}> {/* PRODUTOS MAIS VENDIDOS */}
+                    <ItemOutside>
+                        <Typography sx={{fontFamily: 'roboto', fontSize: '1.8em'}}>
                             Produtos mais vendidos
                         </Typography>
                         <TabelaMaisVendidos />
-                    </Item>
+                    </ItemOutside>
                 </Grid>
-                <Grid item xs={4}> {/* ESTOQUE BAIXO */}
-                    <Item>
-                        <Typography sx={{fontFamily: 'roboto', fontSize: '1.5em'}}>
+                <Grid item xs={4} sx={{backgroundColor: '#EEF9FF'}}> {/* ESTOQUE BAIXO */}
+                    <ItemOutside>
+                        <Typography sx={{fontFamily: 'roboto', fontSize: '1.8em'}}>
                             Estoque Baixo
                         </Typography>
                         <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
@@ -201,7 +211,7 @@ const DashBoard = () => {
                             </ListItem>
                             <Divider variant="inset" component="li" />
                         </List>
-                    </Item>
+                    </ItemOutside>
                 </Grid>
             </Grid>
         </div>

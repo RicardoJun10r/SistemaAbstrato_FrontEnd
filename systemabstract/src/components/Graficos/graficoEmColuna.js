@@ -4,8 +4,8 @@ import HighchartsReact from 'highcharts-react-official'
 
 const options = {
     chart: {
-        type: 'line',
-        width: '450',
+        type: 'column',
+        width: '1000',
         height: '200'
     },
     title: {
@@ -20,19 +20,19 @@ const options = {
         }
     },
     series: [{
-        name: 'Pedidos',
+        name: 'Compras',
         data: [16, 18, 23, 27, 32, 36, 39, 38, 35, 29,
             22, 17],
-        color: 'orange'
-    }, {
-        name: 'Compras',
-        data: [2, 3, 0, 4, 10, 14, 17, 16, 12, 6,
-            2, 0],
         color: 'blue'
+    }, {
+        name: 'Vendas',
+        data: [0, 0, 0, 4, 10, 14, 17, 16, 12, 6,
+            2, 0],
+        color: 'green'
     }]
     }
 
-const GraficoPedidos = () => {
+const GraficoVendasCompras = () => {
     return(
         <div>
             <HighchartsReact 
@@ -43,4 +43,4 @@ const GraficoPedidos = () => {
     )
 }
 
-export default GraficoPedidos;
+export default GraficoVendasCompras;
