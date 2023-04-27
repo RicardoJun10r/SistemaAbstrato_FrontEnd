@@ -10,11 +10,15 @@ import {
     InputAdornment,
     IconButton,
     Link,
-    Button } from "@mui/material";
-import { red } from '@mui/material/colors'
+    Button,
+    FormHelperText,
+    TextField } from "@mui/material";
+import { red } from '@mui/material/colors';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import LOGO from '../../assets/Logotipo.png'
+import { useFormik } from 'formik';
+import { validationSchema } from '../../errors/FormLogin/mensagensErro';
 
 const Item = styled(Box)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -35,6 +39,17 @@ height: '50px',
 }));
 
 const LoginForms = () => {
+
+    const formik = useFormik({
+        initialValues:{
+            email: "",
+            senha: ""
+        },
+        onSubmit: (values) => {
+            console.log(JSON.stringify(values)); // COLOCAR AQUI AUTENTICAÇÃO DA API
+        },
+        validationSchema: validationSchema
+    })
 
     const [showPassword, setShowPassword] = React.useState(false);
 
@@ -63,61 +78,61 @@ const LoginForms = () => {
                     </Box>
                 </Item>
                 <Item>
-                    <FormControl sx={{ m: 1, width: '500px' }}>
-                        <InputLabel htmlFor="outlined-adornment-amount">E-mail</InputLabel>
-                        <OutlinedInput
-                            id="outlined-adornment-amount"
-                            endAdornment={<InputAdornment position="start"></InputAdornment>}
-                            label="email"
-                            placeholder="Digite seu e-mail"
-                            autoComplete="on"
-                        />
-                    </FormControl>
-                </Item>
-                <Item>
-                    <FormControl sx={{ m: 1, width: '500px' }} variant="outlined">
-                        <InputLabel htmlFor="outlined-adornment-password">Senha</InputLabel>
+                    <Box component='form' sx={{display: 'grid', justifyContent: 'center'}} onSubmit={formik.handleSubmit}>
+                        <FormControl sx={{ m: 1, width: '500px'}}>
+                            <TextField 
+                                id="email" 
+                                label="E-mail" 
+                                type="email" 
+                                value={formik.values.email}
+                                onChange={formik.handleChange}
+                                error={formik.touched.email && Boolean(formik.errors.email)}
+                                helperText={formik.touched.email && formik.errors.email}
+                                placeholder="Digite seu e-mail"/>
+                        </FormControl>
+                        <FormControl sx={{ m: 1, width: '500px'}}>
+                            <InputLabel htmlFor="senha">Senha</InputLabel>
                             <OutlinedInput
-                                id="outlined-adornment-password"
+                                id="senha"
                                 type={showPassword ? 'text' : 'password'}
-                                placeholder="Digite sua senha"
-                                autoComplete="off"
                                 endAdornment={
                                 <InputAdornment position="end">
                                     <IconButton
-                                    aria-label="toggle password visibility"
-                                    onClick={handleClickShowPassword}
-                                    onMouseDown={handleMouseDownPassword}
-                                    edge="end"
+                                        aria-label="toggle password visibility"
+                                        onClick={handleClickShowPassword}
+                                        onMouseDown={handleMouseDownPassword}
+                                        edge="end"
                                     >
                                     {showPassword ? <VisibilityOff /> : <Visibility />}
                                     </IconButton>
                                 </InputAdornment>
                                 }
                                 label="senha"
+                                placeholder="Digite sua senha"
+                                value={formik.values.senha}
+                                onChange={formik.handleChange}
+                                error={formik.touched.senha && Boolean(formik.errors.senha)}
                             />
-                    </FormControl>
-                </Item>
-                <Item>
-                    <Box onClick={linkButton}>
-                        <Link sx={{color: 'red', fontSize: '1.4em'}} href="#" underline="hover">
-                            {'Esqueci a senha'}
-                        </Link>
-                    </Box>
-                </Item>
-                <Item>
-                    <Box>
-                        <ColorButton variant="contained">Entrar</ColorButton>
-                    </Box>
-                </Item>
-                <Item>
-                    <Box>
-                        <Typography variant="h6">
-                            Não tem uma conta ?
-                        </Typography>
-                        <Link sx={{color: 'red', fontSize: '1.4em'}} href="#" underline="hover">
-                            {'Registre-se'}
-                        </Link>
+                            <FormHelperText id="senha-ajuda">{formik.touched.senha && formik.errors.senha}</FormHelperText>
+                        </FormControl>
+                        <FormControl>
+                            <Box sx={{marginBottom: '20px'}} onClick={linkButton}>
+                                <Link sx={{color: 'red', fontSize: '1.4em'}} href="#" underline="hover">
+                                    {'Esqueci a senha'}
+                                </Link>
+                            </Box>
+                            <Box sx={{marginBottom: '20px'}}>
+                                <ColorButton type="submit" variant="contained">Entrar</ColorButton>
+                            </Box>
+                            <Box>
+                                <Typography variant="h6">
+                                    Não tem uma conta ?
+                                </Typography>
+                                <Link sx={{color: 'red', fontSize: '1.4em'}} href="/cadastro" underline="hover">
+                                    {'Registre-se'}
+                                </Link>
+                            </Box>
+                        </FormControl>
                     </Box>
                 </Item>
             </Stack>
