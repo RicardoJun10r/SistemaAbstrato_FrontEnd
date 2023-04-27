@@ -5,7 +5,7 @@ import DashBoard from "../DashBoard/dashboard";
 import Estoque from "../Estoque/estoque";
 import Clientes from "../Clientes/clientes";
 import Transacoes from "../Transacoes/transacoes";
-import { Container } from "@mui/material";
+import { Container, Box } from "@mui/material";
 
 const Home = () => {
 
@@ -28,14 +28,12 @@ const Home = () => {
 
     return(
         <div style={homeStyle}>
-            <Container fixed>
-                <header>
-                    <SideBar setIndex={setIndex}/>
-                </header>
-                <body>
+            <React.Fragment>
+                <SideBar setIndex={setIndex}/>
+                <Box>
                     {handlePage(index)}
-                </body>
-            </Container>
+                </Box>
+            </React.Fragment>
         </div>
     )
 }

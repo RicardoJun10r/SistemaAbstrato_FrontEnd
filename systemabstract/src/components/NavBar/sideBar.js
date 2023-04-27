@@ -99,10 +99,15 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 export default function SideBar({setIndex}) {
 
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
+
+  const [open, setOpen] = useState(true);
 
   const handleDrawerOpen = () => {
     setOpen(true);
+  };
+
+  const handleDrawerClose = () => {
+    setOpen(false);
   };
 
   const handleIcons = (index) => {
@@ -119,10 +124,6 @@ export default function SideBar({setIndex}) {
             return <SyncIcon />;
     }
   }
-
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
 
   const [anchorEl, setAnchorEl] = useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
@@ -258,8 +259,9 @@ export default function SideBar({setIndex}) {
         <Divider />
         <List>
           {['Dashboard', 'Estoque', 'Clientes', 'Transações'].map((text, index) => (
-            <ListItem key={text} onClick={() => setIndex(index)} disablePadding sx={{ display: 'block' }}>
+            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
               <ListItemButton
+                onClick={() => setIndex(index)}
                 sx={{
                   minHeight: 48,
                   justifyContent: open ? 'initial' : 'center',

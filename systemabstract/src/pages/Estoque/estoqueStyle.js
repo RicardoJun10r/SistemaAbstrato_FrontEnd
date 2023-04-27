@@ -1,3 +1,4 @@
 export const estoqueStyle = {
-    'display': 'flex'
-}
+    'backgroundColor': '#EEF9FF',
+    'fontFamily': 'roboto',
+};

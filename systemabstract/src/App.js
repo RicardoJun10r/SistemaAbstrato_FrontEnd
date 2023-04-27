@@ -1,11 +1,12 @@
 import React from "react";
 import Rotas from "./routes/routes";
+import './appStyle.css'
 
 function App() {
   return (
-    <div>
-      <Rotas/>
-    </div>
+      <>
+        <Rotas/>
+      </>
   );
 }
 
