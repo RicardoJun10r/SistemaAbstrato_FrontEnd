@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { 
     styled,
     Box,
@@ -18,7 +18,8 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import LOGO from '../../assets/Logotipo.png'
 import { useFormik } from 'formik';
-import { validationSchema } from '../../errors/FormLogin/mensagensErro';
+import { validationSchemaLogin } from '../../errors/FormLogin/mensagensErro';
+import { useNavigate } from 'react-router-dom';
 
 const Item = styled(Box)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -47,11 +48,14 @@ const LoginForms = () => {
         },
         onSubmit: (values) => {
             console.log(JSON.stringify(values)); // COLOCAR AQUI AUTENTICAÇÃO DA API
+            navigate('/')
         },
-        validationSchema: validationSchema
+        validationSchema: validationSchemaLogin
     })
 
-    const [showPassword, setShowPassword] = React.useState(false);
+    const navigate = useNavigate();
+
+    const [showPassword, setShowPassword] = useState(false);
 
     const handleClickShowPassword = () => setShowPassword((show) => !show);
   
