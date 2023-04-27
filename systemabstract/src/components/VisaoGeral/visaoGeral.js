@@ -76,7 +76,7 @@ const VisaoGeral = ({props}) => {
         dados.total_estoque_baixo = contarQuantidadeBaixa(produtos);
         dados.produto_maior_estoque = maiorEstoque(produtos);
         dados.produto_estoque_critico = estoqueCritico(produtos);
-    }, [produtos])
+    }, [])
     
 
     return(
