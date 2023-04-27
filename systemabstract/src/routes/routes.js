@@ -11,7 +11,7 @@ const RotaPersonalizada = ({ Component }) => {
     const { logado } = useAuth();
 
     if(logado){
-        return logado > 0 ? <Component /> : <Login />
+        return logado === true ? <Component/> : <Login/>
     }
     
 }
