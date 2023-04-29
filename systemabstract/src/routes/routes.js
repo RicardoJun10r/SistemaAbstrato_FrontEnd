@@ -6,11 +6,11 @@ import Login from "../pages/Login/loginPage";
 import Cadastro from "../pages/Cadastro/cadastroPage";
 import useAuth from "../hooks/useAuth";
 
-const RotaPersonalizada = ({ Item }) => {
+const RotaPersonalizada = ({ Component }) => {
 
     const { logado } = useAuth();
 
-    return logado > 0 ? <Item /> : <Login />
+    return logado > 0 ? <Component /> : <Login />
     
 }
 
