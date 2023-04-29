@@ -48,3 +48,33 @@ export const inventario = [
         categoria: 'comida'
     }
 ]
+
+export const estoque = [
+    {
+        nome: 'estoque do jorge',
+        quantidade: 4,
+        endereco: 'Rua das dores',
+        stock: [
+            {
+                nome: 'camisa',
+                preco: 50,
+                quantidade: 12,
+                categoria: 'roupa'
+            },
+            {
+                nome: 'calca',
+                preco: 40,
+                quantidade: 20,
+                categoria: 'roupa'
+            },
+            {
+                nome: 'relogio',
+                preco: 120,
+                quantidade: 5,
+                categoria: 'acessorio'
+            }
+        ]
+    }
+]
+
+export const estoque_vazio = []

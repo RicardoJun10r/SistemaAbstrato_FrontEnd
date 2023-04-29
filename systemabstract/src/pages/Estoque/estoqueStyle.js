@@ -1,4 +1,4 @@
 export const estoqueStyle = {
-    'backgroundColor': '#EEF9FF',
-    'fontFamily': 'roboto',
+    backgroundColor: '#F0F1F3',
+    fontFamily: 'roboto',
 };

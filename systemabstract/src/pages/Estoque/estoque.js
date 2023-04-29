@@ -1,10 +1,9 @@
-import { Typography, Paper, Divider, Grid } from "@mui/material";
-import React from "react";
+import { Typography, Paper, Divider, Grid, Box, Button } from "@mui/material";
+import React, { useEffect } from "react";
 import { estoqueStyle } from "./estoqueStyle";
-import { inventario } from "../../api/api";
-import VisaoGeral from "../../components/VisaoGeral/visaoGeral";
+import { estoque, estoque_vazio } from "../../api/api";
 import styled from "@emotion/styled";
-import ListarProdutos from "../../components/ListarProdutos/listarProdutos";
+import BotaoAdicionar from "../../components/Button/botaoAdicionar";
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: '#fff',
@@ -13,29 +12,25 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 const Estoque = () => {
+
+    useEffect(()=>{
+
+    },[estoque])
+
+    const stock  = estoque_vazio;
+
+    console.log(stock.length)
+
     return(
-        <div style={estoqueStyle}>
-            <Grid container spacing={1} rowSpacing={2}>
+        <Box sx={estoqueStyle}>
+            {stock.length === 0 ? 
+            <BotaoAdicionar /> : <Grid container spacing={1} rowSpacing={2}>
                 <Grid item xs={12}>
-                    <Item>
-                        <Typography sx={{fontSize: '2.0em', fontFamily: 'roboto'}}>
-                            Visão Geral
-                        </Typography>
-                        <Divider />
-                        <VisaoGeral props={inventario}/>
-                        <Divider />
-                    </Item>
                 </Grid>
                 <Grid item xs={12} md={12}>
-                    <Item>
-                        <Typography sx={{fontSize: '2.0em', fontFamily: 'roboto'}}>
-                            Produtos
-                        </Typography>
-                        <ListarProdutos props={inventario}/>
-                    </Item>
                 </Grid>
-            </Grid>
-        </div>
+            </Grid>}
+        </Box>
     )
 }
 
