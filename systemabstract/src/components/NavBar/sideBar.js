@@ -27,6 +27,8 @@ import PaidIcon from '@mui/icons-material/Paid';
 import LogoutIcon from '@mui/icons-material/Logout';
 import SyncIcon from '@mui/icons-material/Sync';
 import DryCleaningIcon from '@mui/icons-material/DryCleaning';
+import { useNavigate } from 'react-router-dom';
+import useAuth from "../../hooks/useAuth";
 
 
 const drawerWidth = 240;
@@ -101,6 +103,15 @@ export default function SideBar({setIndex}) {
   const theme = useTheme();
 
   const [open, setOpen] = useState(true);
+
+  const { desautenticar } = useAuth();
+
+  const navigate = useNavigate();
+
+  function handleLogout(){
+    desautenticar();
+    navigate('/login');
+  }
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -292,6 +303,7 @@ export default function SideBar({setIndex}) {
                   justifyContent: open ? 'initial' : 'center',
                   px: 2.5,
                 }}
+                onClick={handleLogout}
               >
                 <ListItemIcon
                   sx={{

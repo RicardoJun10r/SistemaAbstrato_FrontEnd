@@ -18,6 +18,7 @@ import LOGO from '../../assets/Logotipo.png';
 import { useFormik } from 'formik';
 import { validationSchemaCadastro } from '../../errors/FormCadastro/mensagensErro';
 import { useNavigate } from 'react-router-dom';
+import useAuth from "../../hooks/useAuth";
 
 const Item = styled(Box)(({ theme }) => ({
     backgroundColor: 'inherit',
@@ -49,12 +50,15 @@ const CadastroForms = () => {
         },
         onSubmit: (values) => {
             console.log(JSON.stringify(values));
-            navigate('/login')
+            handleSignUp()
         },
         validationSchema: validationSchemaCadastro
     })
 
     const navigate = useNavigate();
+
+    const { registrar } = useAuth();
+
 
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmedPassword, setShowConfirmedPassword] = useState(false);
@@ -69,6 +73,17 @@ const CadastroForms = () => {
     const handleMouseDownPasswordConfirmed = (event) => {
         event.preventDefault();
       };
+
+      function handleSignUp(){
+        const res = registrar(formik.values.email, formik.values.senha);
+    
+        if (res) {
+          console.log(res);
+          return;
+        }
+    
+        navigate("/login");
+      }
 
     return(
         <Box sx={{ width: '100%' }}>

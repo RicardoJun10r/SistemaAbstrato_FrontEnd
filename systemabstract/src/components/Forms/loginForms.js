@@ -20,6 +20,7 @@ import LOGO from '../../assets/Logotipo.png'
 import { useFormik } from 'formik';
 import { validationSchemaLogin } from '../../errors/FormLogin/mensagensErro';
 import { useNavigate } from 'react-router-dom';
+import useAuth from "../../hooks/useAuth";
 
 const Item = styled(Box)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -48,10 +49,12 @@ const LoginForms = () => {
         },
         onSubmit: (values) => {
             console.log(JSON.stringify(values)); // COLOCAR AQUI AUTENTICAÇÃO DA API
-            navigate('/')
+            handleLogin()
         },
         validationSchema: validationSchemaLogin
     })
+
+    const { autenticar } = useAuth();
 
     const navigate = useNavigate();
 
@@ -62,6 +65,17 @@ const LoginForms = () => {
     const handleMouseDownPassword = (event) => {
       event.preventDefault();
     };
+
+    const handleLogin = () => {
+        const res = autenticar(formik.values.email, formik.values.senha);
+    
+        if (res) {
+          console.log(res);
+          return;
+        }
+    
+        navigate("/home");
+      };
 
     const linkButton = (event) => {
         event.preventDefault();
