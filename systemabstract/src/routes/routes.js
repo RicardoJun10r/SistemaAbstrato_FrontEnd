@@ -1,18 +1,16 @@
 import React, { Fragment } from "react";
-import { Route, Routes, BrowserRouter } from "react-router-dom";
+import { Route, Routes, BrowserRouter, redirect } from "react-router-dom";
 
 import Home from "../pages/Home/home";
 import Login from "../pages/Login/loginPage";
 import Cadastro from "../pages/Cadastro/cadastroPage";
 import useAuth from "../hooks/useAuth";
 
-const RotaPersonalizada = ({ Component }) => {
+const RotaPersonalizada = ({ Item }) => {
 
     const { logado } = useAuth();
 
-    if(logado){
-        return logado === true ? <Component/> : <Login/>
-    }
+    return logado > 0 ? <Item /> : <Login />
     
 }
 
