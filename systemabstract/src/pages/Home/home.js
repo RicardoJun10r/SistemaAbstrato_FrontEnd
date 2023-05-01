@@ -27,7 +27,7 @@ const Home = () => {
       }
 
     return(
-        <Box sx={homeStyle}>
+        <div style={homeStyle}>
             <React.Fragment>
                 <CssBaseline />
                 <SideBar setIndex={setIndex}/>
@@ -35,7 +35,7 @@ const Home = () => {
                     {handlePage(index)}
                 </Box>
             </React.Fragment>
-        </Box>
+        </div>
     )
 }
 

@@ -4,4 +4,5 @@ export const homeStyle = {
     height: '100vh',
     width: 'auto',
     alignItems: 'center',
+    position: 'relative'
 }

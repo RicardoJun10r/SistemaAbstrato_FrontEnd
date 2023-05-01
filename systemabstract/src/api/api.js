@@ -78,3 +78,9 @@ export const estoque = [
 ]
 
 export const estoque_vazio = []
+
+export const adicionar_estoque_vazio = (objeto) => {
+    estoque_vazio.push(objeto);
+    console.log("Rapais");
+    console.log(objeto.nome + " " + objeto.localizacao + " " + objeto.tipo)
+}

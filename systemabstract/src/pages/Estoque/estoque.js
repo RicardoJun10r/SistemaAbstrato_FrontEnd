@@ -14,12 +14,11 @@ const Item = styled(Paper)(({ theme }) => ({
 const Estoque = () => {
 
     useEffect(()=>{
-
+        console.log(stock.length)
     },[estoque])
 
-    const stock  = estoque_vazio;
+    const stock = estoque_vazio;
 
-    console.log(stock.length)
 
     return(
         <Box sx={estoqueStyle}>

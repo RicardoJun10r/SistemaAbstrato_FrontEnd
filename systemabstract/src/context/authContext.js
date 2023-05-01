@@ -14,7 +14,7 @@ export const AuthProvider = ({ children }) => {
     
         if (userToken && usersStorage) {
           const hasUser = JSON.parse(usersStorage)?.filter(
-            (user) => user.email === JSON.parse(userToken).email
+            (usuario) => usuario.email === JSON.parse(userToken).email
           );
     
           if (hasUser) setUsuario(hasUser[0]);
