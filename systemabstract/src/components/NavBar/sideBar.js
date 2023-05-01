@@ -113,13 +113,9 @@ export default function SideBar({setIndex}) {
     navigate('/login');
   }
 
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
+  const handleDrawerOpen = () => setOpen(true);
 
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
+  const handleDrawerClose = () => setOpen(false);
 
   const handleIcons = (index) => {
     switch (index) {

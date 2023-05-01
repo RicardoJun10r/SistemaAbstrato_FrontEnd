@@ -5,7 +5,7 @@ import DashBoard from "../DashBoard/dashboard";
 import Estoque from "../Estoque/estoque";
 import Clientes from "../Clientes/clientes";
 import Transacoes from "../Transacoes/transacoes";
-import { Box, Container, CssBaseline} from "@mui/material";
+import { Box, CssBaseline} from "@mui/material";
 
 const Home = () => {
 
