@@ -1,42 +1,29 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { estoqueStyle } from "./estoqueStyle";
 import { estoque, estoque_vazio } from "../../api/api";
-import styled from "@emotion/styled";
 import BotaoAdicionar from "../../components/Button/botaoAdicionar";
-import { Paper, Stack, Box, Button } from "@mui/material";
-import TabsEstoque from "../../components/Tabs/tabsEstoque";
-
-const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: '#fff',
-    textAlign: 'start',
-    padding: '15px 15px 15px 15px',
-}));
+import { Box } from "@mui/material";
+import EstoqueContent from "./Content/estoqueContent";
+import ProdutoContent from "./Content/produtoContent";
+import useEstoque from "../../hooks/useEstoque";
 
 const Estoque = () => {
 
-    useEffect(()=>{
-        console.log(stock.length)
-    },[estoque])
-
     const stock = estoque_vazio;
 
+    const { indexContent } = useEstoque();
+
+    useEffect(()=>{
+        // console.log(stock.length)
+    },[estoque])
+
     if(stock.length === 0){
-        return(
-            <BotaoAdicionar />
-        )
+        return <BotaoAdicionar />;
     }
 
     return(
         <Box sx={estoqueStyle}>
-            <Stack sx={{width: '1500px'}} spacing={2}>
-                <Box sx={{display: 'inline', position: 'relative', justifyContent: 'space-between'}}>
-                    Estoques
-                    <Button variant="contained">Criar estoque</Button>
-                </Box>
-                <Item>
-                    <TabsEstoque />
-                </Item>
-            </Stack>
+            { indexContent === false ? <EstoqueContent /> : <ProdutoContent /> }
         </Box>
     )
 }
