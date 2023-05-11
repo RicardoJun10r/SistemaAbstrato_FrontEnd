@@ -5,18 +5,19 @@ import DashBoard from "../DashBoard/dashboard";
 import Estoque from "../Estoque/estoque";
 import Clientes from "../Clientes/clientes";
 import Transacoes from "../Transacoes/transacoes";
-import { Container, Box } from "@mui/material";
+import { Box, CssBaseline} from "@mui/material";
+import SetEstoque from "../Estoque/utils/setEstoque";
 
 const Home = () => {
 
     const [index, setIndex] = useState(0);
 
-    const handlePage = (index) => {
+    function handlePage(index){
         switch (index) {
             case 0:
                 return <DashBoard />;
             case 1:
-                return <Estoque />;
+                return <SetEstoque />;
             case 2:
                 return <Clientes />;
             case 3:
@@ -29,6 +30,7 @@ const Home = () => {
     return(
         <div style={homeStyle}>
             <React.Fragment>
+                <CssBaseline />
                 <SideBar setIndex={setIndex}/>
                 <Box>
                     {handlePage(index)}

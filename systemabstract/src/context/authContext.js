@@ -5,6 +5,8 @@ export const AuthContext = createContext({});
 export const AuthProvider = ({ children }) => {
 
     const [ usuario, setUsuario ] = useState();
+    
+    const [ erros, setErros ] = useState();
 
     useEffect(() => {
         const userToken = localStorage.getItem("user_token");
@@ -12,7 +14,7 @@ export const AuthProvider = ({ children }) => {
     
         if (userToken && usersStorage) {
           const hasUser = JSON.parse(usersStorage)?.filter(
-            (user) => user.email === JSON.parse(userToken).email
+            (usuario) => usuario.email === JSON.parse(userToken).email
           );
     
           if (hasUser) setUsuario(hasUser[0]);
@@ -31,9 +33,11 @@ export const AuthProvider = ({ children }) => {
             setUsuario({ email, password });
             return;
           } else {
+            setErros("E-mail ou senha incorretos")
             return "E-mail ou senha incorretos";
           }
         } else {
+          setErros("Usuário não cadastrado")
           return "Usuário não cadastrado";
         }
       };
@@ -44,6 +48,7 @@ export const AuthProvider = ({ children }) => {
         const hasUser = usersStorage?.filter((user) => user.email === email);
     
         if (hasUser?.length) {
+          setErros("Já tem uma conta com esse E-mail")
           return "Já tem uma conta com esse E-mail";
         }
     
@@ -67,7 +72,7 @@ export const AuthProvider = ({ children }) => {
 
     return(
         <AuthContext.Provider 
-            value={{usuario, logado: !!usuario, autenticar, registrar, desautenticar}}>
+            value={{usuario, logado: !!usuario, autenticar, registrar, desautenticar, erros}}>
             { children }
         </AuthContext.Provider>
     )

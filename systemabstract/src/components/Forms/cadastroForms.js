@@ -10,6 +10,7 @@ import {
     InputAdornment,
     IconButton,
     Button, 
+    Link,
     FormHelperText } from "@mui/material";
 import { red } from '@mui/material/colors';
 import Visibility from '@mui/icons-material/Visibility';
@@ -197,8 +198,11 @@ const CadastroForms = () => {
                                 />
                             <FormHelperText id='senha-ajuda' >{formik.touched.senhaConfirmada && formik.errors.senhaConfirmada}</FormHelperText>
                         </FormControl>
-                        <Box>
+                        <Box sx={{display: 'grid', justifyContent: 'center', alignSelf: 'center'}}>
                             <ColorButton type="submit" variant="contained">Registrar</ColorButton>
+                            <Link sx={{color: 'red', fontSize: '1.4em', marginTop: '10px'}} href="/login" underline="hover">
+                                    {'Voltar'}
+                            </Link>
                         </Box>
                     </Box>
                 </Item>

@@ -56,6 +56,8 @@ const LoginForms = () => {
 
     const { autenticar } = useAuth();
 
+    const { erros } = useAuth();
+
     const navigate = useNavigate();
 
     const [showPassword, setShowPassword] = useState(false);
@@ -94,6 +96,9 @@ const LoginForms = () => {
                             Bem vindo, digite suas credenciais
                         </Typography>
                     </Box>
+                    <Typography>
+                            {erros != null ? <h2>{erros}</h2> : null}
+                    </Typography>
                 </Item>
                 <Item>
                     <Box component='form' sx={{display: 'grid', justifyContent: 'center'}} onSubmit={formik.handleSubmit}>

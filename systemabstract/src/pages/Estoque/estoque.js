@@ -1,41 +1,30 @@
-import { Typography, Paper, Divider, Grid } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
 import { estoqueStyle } from "./estoqueStyle";
-import { inventario } from "../../api/api";
-import VisaoGeral from "../../components/VisaoGeral/visaoGeral";
-import styled from "@emotion/styled";
-import ListarProdutos from "../../components/ListarProdutos/listarProdutos";
-
-const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: '#fff',
-    textAlign: 'start',
-    padding: '15px 15px 15px 15px',
-}));
+import { estoque, estoque_vazio } from "../../api/api";
+import BotaoAdicionar from "../../components/Button/botaoAdicionar";
+import { Box } from "@mui/material";
+import EstoqueContent from "./Content/estoqueContent";
+import ProdutoContent from "./Content/produtoContent";
+import useEstoque from "../../hooks/useEstoque";
 
 const Estoque = () => {
+
+    const stock = estoque_vazio;
+
+    const { indexContent } = useEstoque();
+
+    useEffect(()=>{
+        // console.log(stock.length)
+    },[estoque])
+
+    if(stock.length === 0){
+        return <BotaoAdicionar />;
+    }
+
     return(
-        <div style={estoqueStyle}>
-            <Grid container spacing={1} rowSpacing={2}>
-                <Grid item xs={12}>
-                    <Item>
-                        <Typography sx={{fontSize: '2.0em', fontFamily: 'roboto'}}>
-                            Visão Geral
-                        </Typography>
-                        <Divider />
-                        <VisaoGeral props={inventario}/>
-                        <Divider />
-                    </Item>
-                </Grid>
-                <Grid item xs={12} md={12}>
-                    <Item>
-                        <Typography sx={{fontSize: '2.0em', fontFamily: 'roboto'}}>
-                            Produtos
-                        </Typography>
-                        <ListarProdutos props={inventario}/>
-                    </Item>
-                </Grid>
-            </Grid>
-        </div>
+        <Box sx={estoqueStyle}>
+            { indexContent === false ? <EstoqueContent /> : <ProdutoContent /> }
+        </Box>
     )
 }
 

@@ -1,9 +1,8 @@
 export const homeStyle = {
-    'backgroundColor': '#EEF9FF',
-    'display': 'flex',
-    'position': 'relative',
-    'height': '100vh',
-    'justifyContent': 'space-around',
-    'alignItems': 'center',
-    'width': '100%'
+    backgroundColor: '#F0F1F3',
+    display: 'flex',
+    height: '100vh',
+    alignItems: 'center',
+    justifyContent: 'center',
+    position: 'relative'
 }
