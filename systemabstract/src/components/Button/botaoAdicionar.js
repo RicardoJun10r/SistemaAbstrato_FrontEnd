@@ -18,7 +18,7 @@ const BotaoAdicionar = () => {
 
     return(
         <Box>
-            <Stack  sx={{position: 'relative', alignItems: 'center'}} item direction='row' divider={<Divider sx={{height: '350px'}} orientation="vertical" flexItem />} spacing={2}>
+            <Stack sx={{position: 'relative', alignItems: 'center'}} direction='row' divider={<Divider sx={{height: '350px'}} orientation="vertical" flexItem />} spacing={2}>
                 <Item>
                     <Typography fontFamily='roboto' variant="h3">
                         Sem estoque cadastrado<br/>Crie seu primeiro estoque

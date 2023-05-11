@@ -19,7 +19,6 @@ import ListItemText from '@mui/material/ListItemText';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import AccountCircle from '@mui/icons-material/AccountCircle';
-import MoreIcon from '@mui/icons-material/MoreVert';
 import GridViewIcon from '@mui/icons-material/GridView';
 import Inventory2Icon from '@mui/icons-material/Inventory2';
 import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';

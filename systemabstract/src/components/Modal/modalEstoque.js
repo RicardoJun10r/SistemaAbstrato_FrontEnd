@@ -1,23 +1,13 @@
 import * as React from 'react';
-import { useState } from 'react';
 import { 
   Box,
-  Button,
   Typography,
   Modal,
   Stack,
-  TextField,
-  FormControl,
-  Select,
-  MenuItem,
-  IconButton,
-  InputLabel } from '@mui/material';
+  IconButton } from '@mui/material';
 import styled from "@emotion/styled";
-import TabelaProdutos from '../Table/tabelaProdutos';
-import TabsProdutos from '../Tabs/tabsProdutos';
 import CloseIcon from '@mui/icons-material/Close';
-import { estoque_vazio } from '../../api/api';
-import EstoqueCriarForms from '../Forms/EstoqueCriarForms';
+import EstoqueCriarForms from '../Forms/estoqueCriarForms';
 
 const styleModalEstoque = {
   position: 'absolute',
@@ -67,7 +57,7 @@ export default function ModalEstoque({open, handleClose}) {
           </Box>
           <Stack sx={styleStackEstoque}>
             <Item>
-              <EstoqueCriarForms />
+              <EstoqueCriarForms handleClose={handleClose}/>
             </Item>
           </Stack>
         </Box>
