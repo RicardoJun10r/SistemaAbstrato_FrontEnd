@@ -5,6 +5,7 @@ import { Tabs, Tab, Typography, Box, Grid, TextField } from '@mui/material';
 import TextFieldProdutos from '../TextField/textFiledProdutos';
 import TextFieldDetalheVenda from '../TextField/textFieldDetalheVenda';
 import TextFieldDetalheFornecedor from '../TextField/textFieldDetalheFornecedor';
+import ProdutoAtualizarForms from '../Forms/produtoAtualizarForms';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -59,7 +60,7 @@ export default function TabsProdutos({produto}) {
         <Grid container spacing={4} columnSpacing={4}>
             <Grid item xs={2}>
                 Detalhes do produto
-                <TextFieldProdutos produto={produto}/>
+                <ProdutoAtualizarForms />
             </Grid>
             <Grid item xs={2}>
                 Detalhe de venda
