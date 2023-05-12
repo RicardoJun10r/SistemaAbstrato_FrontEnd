@@ -39,7 +39,7 @@ const Item = styled(Box)(({ theme }) => ({
 
 export default function ModalDeletarEstoque({open, handleClose}) {
 
-  const { produto } = useEstoque();
+  const { estoque } = useEstoque();
 
   return (
     <div>
@@ -53,7 +53,7 @@ export default function ModalDeletarEstoque({open, handleClose}) {
         <Box sx={styleModalEstoque}>
           <Box sx={{display: 'flex', justifyContent: 'space-between'}}>
             <Typography id="modal-modal-title" variant="h5" >
-              Escreva o nome deste estoque para deleta-lo [ {produto} ]
+              Escreva o nome deste estoque para deleta-lo [ {estoque} ]
             </Typography>
             <IconButton onClick={handleClose}>
               <CloseIcon />

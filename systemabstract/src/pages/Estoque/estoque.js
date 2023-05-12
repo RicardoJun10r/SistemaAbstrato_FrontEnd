@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { estoqueStyle } from "./estoqueStyle";
-import { estoque, estoque_vazio } from "../../api/api";
 import BotaoAdicionar from "../../components/Button/botaoAdicionar";
 import { Box } from "@mui/material";
 import EstoqueContent from "./Content/estoqueContent";
@@ -9,13 +8,11 @@ import useEstoque from "../../hooks/useEstoque";
 
 const Estoque = () => {
 
-    const stock = estoque_vazio;
+    const { stock } = useEstoque();
 
     const { indexContent } = useEstoque();
 
-    useEffect(()=>{
-        // console.log(stock.length)
-    },[estoque])
+    useEffect(()=>{},[stock])
 
     if(stock.length === 0){
         return <BotaoAdicionar />;

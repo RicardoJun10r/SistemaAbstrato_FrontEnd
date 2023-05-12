@@ -41,7 +41,7 @@ const Item = styled(Box)(({ theme }) => ({
 
 export default function ModalVisualizarModal({open, handleClose}) {
 
-  const { produto } = useEstoque();
+  const { estoque } = useEstoque();
 
   return (
     <div>

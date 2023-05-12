@@ -10,11 +10,11 @@ import ModalVisualizarModal from '../Modal/modalVerEstoque';
 
 const TabelaEstoque = () => {
 
-  const { setProduto, setIndexContent } = useEstoque();
+  const { setEstoque, setIndexContent } = useEstoque();
 
-  const [deleteModal, setDeleteModal] = useState(false);
+  const [ deleteModal, setDeleteModal ] = useState(false);
 
-  const [visualizarModal, setVisualizarModal] = useState(false);
+  const [ visualizarModal, setVisualizarModal ] = useState(false);
 
   const handleDeleteModalOpen = () => setDeleteModal(true);
 
@@ -24,18 +24,18 @@ const TabelaEstoque = () => {
 
   const handleVisualizarModalClose = () => setVisualizarModal(false);
 
-  function CarregarProduto(e) {
-    setProduto(e)
+  function CarregarEstoque(e) {
+    setEstoque(e)
     setIndexContent(true)
   }
 
   function DeletarEstoque(e) {
-    setProduto(e)
+    setEstoque(e)
     handleDeleteModalOpen();
   }
 
   function VisualizarEstoque(e) {
-    setProduto(e);
+    setEstoque(e);
     handleVisualizarModalOpen();
   }
 
@@ -47,7 +47,7 @@ const TabelaEstoque = () => {
     { field: 'localizacao', headerName: 'Localização', description: 'A localização do estoque', sortable: false, width: 160 },
     {
       field: 'Entrar', description: 'Entrar no estoque', sortable: false, width: 200, renderCell: (params) => {
-        return <Button onClick={() => CarregarProduto(params.row.id)} endIcon={<ForwardIcon />} variant="text">{`Entrar ${params.row.nome}`}</Button>
+        return <Button onClick={() => CarregarEstoque(params.row.id)} endIcon={<ForwardIcon />} variant="text">{`Entrar ${params.row.nome}`}</Button>
       }
     },
     {
