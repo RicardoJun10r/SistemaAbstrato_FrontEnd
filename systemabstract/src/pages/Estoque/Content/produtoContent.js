@@ -1,7 +1,6 @@
 import React from "react";
 import { 
     Box, 
-    Button,
     Typography, 
     Paper, 
     Divider, 
@@ -27,7 +26,9 @@ const ProdutoContent = () => {
 
     return(
         <Box>
-            <IconButton onClick={() => setIndexContent(false)} variant="contained"><ArrowCircleLeftIcon /></IconButton>
+            <IconButton onClick={() => setIndexContent(false)} variant="contained">
+                <ArrowCircleLeftIcon />
+            </IconButton>
             <Grid container spacing={1} rowSpacing={2}>
                 <Grid item xs={12}>
                     <Item>
