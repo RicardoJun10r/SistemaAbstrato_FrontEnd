@@ -1,7 +1,5 @@
 import * as React from 'react';
-import { useState } from 'react';
-import { Box, Button, Typography, Modal, Grid } from '@mui/material';
-import TabelaProdutos from '../Table/tabelaProdutos';
+import { Box,Typography, Modal, Grid } from '@mui/material';
 import TabsProdutos from '../Tabs/tabsProdutos';
 
 const style = {
@@ -18,7 +16,7 @@ const style = {
   p: 4,
 };
 
-export default function ModalVer({open, handleClose, produto}) {
+export default function ModalVerProduto({open, handleClose, produto}) {
   return (
     <div>
       <Modal
