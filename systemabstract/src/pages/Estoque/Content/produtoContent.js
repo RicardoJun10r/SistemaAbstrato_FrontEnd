@@ -4,8 +4,9 @@ import {
     Typography, 
     Paper, 
     Divider, 
+    Stack,
     Grid,
-    IconButton } from "@mui/material";
+    Button } from "@mui/material";
 import useEstoque from "../../../hooks/useEstoque";
 import VisaoGeral from "../../../components/VisaoGeral/visaoGeral";
 import ListarProdutos from "../../../components/ListarProdutos/listarProdutos";
@@ -26,29 +27,32 @@ const ProdutoContent = () => {
 
     return(
         <Box>
-            <IconButton onClick={() => setIndexContent(false)} variant="contained">
-                <ArrowCircleLeftIcon />
-            </IconButton>
-            <Grid container spacing={1} rowSpacing={2}>
+            <Stack container spacing={1} rowSpacing={2}>
                 <Grid item xs={12}>
                     <Item>
+                        
                         <Typography sx={{fontSize: '2.0em', fontFamily: 'roboto'}}>
                             Visão Geral
                         </Typography>
                         <Divider />
+                        <br/>
                         <VisaoGeral props={inventario}/>
-                        <Divider />
                     </Item>
                 </Grid>
                 <Grid item xs={12} md={12}>
-                    <Item>
+                    <Item sx={{textAlign: 'center'}}>
                         <Typography sx={{fontSize: '2.0em', fontFamily: 'roboto'}}>
                             Produtos
                         </Typography>
+                        <Divider />
+                        <br/>
                         <ListarProdutos props={inventario}/>
+                        <Button onClick={() => setIndexContent(false)} variant="text" startIcon={<ArrowCircleLeftIcon />}>
+                            Voltar
+                        </Button>
                     </Item>
                 </Grid>
-            </Grid>
+            </Stack>
         </Box>
     )
 }
