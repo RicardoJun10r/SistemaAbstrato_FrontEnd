@@ -1,6 +1,6 @@
-import { Box, Stack, Typography } from "@mui/material";
 import React, { useState, useEffect } from "react";
 import styled from "@emotion/styled";
+import { Box, Stack, Typography, Divider } from "@mui/material";
 
 const Item = styled(Box)(({ theme }) => ({
     backgroundColor: '#ffffff',
@@ -77,37 +77,36 @@ const VisaoGeral = ({props}) => {
         dados.produto_maior_estoque = maiorEstoque(produtos);
         dados.produto_estoque_critico = estoqueCritico(produtos);
     }, [])
-    
 
     return(
-        <Stack sx={{alignItems: 'center', justifyContent: 'space-between', backgroundColor: '#FFFFFF'}} item direction='row'>
+        <Stack divider={<Divider orientation="vertical" flexItem />} sx={{alignItems: 'center', justifyContent: 'space-between', backgroundColor: '#FFFFFF'}} item direction='row'>
             <Item sx={{fontSize: '1.5em'}}>
-                <Typography sx={{fontSize: 'larger', color: '#3370E7', fontFamily: 'roboto'}}>
+                <Typography sx={{fontSize: '1em', color: '#3370E7', fontFamily: 'roboto'}}>
                     Tipos de Categorias
                 </Typography>
                 <strong>{dados.total_categorias}</strong>
             </Item>
             <Item sx={{fontSize: '1.5em'}}>
-                <Typography sx={{fontSize: 'larger', color: '#E19133', fontFamily: 'roboto'}}>
+                <Typography sx={{fontSize: '1em', color: '#E19133', fontFamily: 'roboto'}}>
                     Total de Produtos
                 </Typography>
                 <strong>{dados.total_Produtos}</strong>
             </Item>
             <Item sx={{fontSize: '1.5em'}}>
-                <Typography sx={{fontSize: 'larger', color: '#E13333', fontFamily: 'roboto'}}>
+                <Typography sx={{fontSize: '1em', color: '#E13333', fontFamily: 'roboto'}}>
                     Total de produtos em
                     baixo estoque
                 </Typography>
                 <strong>{dados.total_estoque_baixo}</strong>
             </Item>
             <Item sx={{fontSize: '1.5em'}}>
-                <Typography sx={{fontSize: 'larger', color: '#9F33E1', fontFamily: 'roboto'}}>
+                <Typography sx={{fontSize: '1em', color: '#9F33E1', fontFamily: 'roboto'}}>
                     Produto com maior estoque
                 </Typography>
                 <strong>{dados.produto_maior_estoque}</strong>
             </Item>
             <Item sx={{fontSize: '1.5em'}}>
-                <Typography sx={{fontSize: 'larger', color: '#E13333', fontFamily: 'roboto'}}>
+                <Typography sx={{fontSize: '1em', color: '#E13333', fontFamily: 'roboto'}}>
                     Produto de estoque crítico
                 </Typography>
                 <strong>{dados.produto_estoque_critico}</strong>
