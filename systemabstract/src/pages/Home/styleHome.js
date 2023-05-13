@@ -1,5 +1,5 @@
 export const homeStyle = {
-    backgroundColor: '#F0F1F3',
+    backgroundColor: '#EEF9FF',
     display: 'flex',
     height: '100vh',
     alignItems: 'center',
