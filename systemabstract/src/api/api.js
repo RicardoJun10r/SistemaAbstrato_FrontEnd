@@ -1,12 +1,12 @@
 import axios from 'axios'
 
-const aplicacao = axios.create({
+export const aplicacao = axios.create({
     baseURL: 'http://localhost:8081/'
 })
 
 export const Cadastrar = async (name, login, password) => {
     console.log(name)
-    await aplicacao.post('/user',
+    await axios.post('user',
     {
         name: name,
         login: login,
@@ -14,6 +14,15 @@ export const Cadastrar = async (name, login, password) => {
         permission: 1
     }).then(response => {
         console.log(response.data + " " + response.status)
+    }).catch(error => console.log(error.message))
+}
+
+export const Logar = (login, password) => {
+    axios.post('/user/login', {
+        login: login,
+        password: password
+    }).then(response =>{
+        return response
     }).catch(error => console.log(error.message))
 }
 

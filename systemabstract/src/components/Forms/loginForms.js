@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { 
     styled,
     Box,
@@ -44,17 +44,17 @@ const LoginForms = () => {
 
     const formik = useFormik({
         initialValues:{
-            email: "",
-            senha: ""
+            login: "",
+            password: ""
         },
         onSubmit: (values) => {
-            console.log(JSON.stringify(values)); // COLOCAR AQUI AUTENTICAÇÃO DA API
+            // console.log(JSON.stringify(values)); // COLOCAR AQUI AUTENTICAÇÃO DA API
             handleLogin()
         },
         validationSchema: validationSchemaLogin
     })
 
-    const { autenticar } = useAuth();
+    const { autenticar, usuario } = useAuth();
 
     const { erros } = useAuth();
 
@@ -69,13 +69,14 @@ const LoginForms = () => {
     };
 
     const handleLogin = () => {
-        const res = autenticar(formik.values.email, formik.values.senha);
+
+        const res = autenticar(formik.values.login, formik.values.password);
     
-        if (res) {
-          console.log(res);
+        if (!res) {
+          console.log("res: " + res);
+          console.log("usuario: " + usuario.login);
           return;
         }
-    
         navigate("/home");
       };
 
@@ -104,19 +105,19 @@ const LoginForms = () => {
                     <Box component='form' sx={{display: 'grid', justifyContent: 'center'}} onSubmit={formik.handleSubmit}>
                         <FormControl sx={{ m: 1, width: '500px'}}>
                             <TextField 
-                                id="email" 
+                                id="login" 
                                 label="E-mail" 
                                 type="email" 
-                                value={formik.values.email}
+                                value={formik.values.login}
                                 onChange={formik.handleChange}
-                                error={formik.touched.email && Boolean(formik.errors.email)}
-                                helperText={formik.touched.email && formik.errors.email}
+                                error={formik.touched.login && Boolean(formik.errors.login)}
+                                helperText={formik.touched.login && formik.errors.login}
                                 placeholder="Digite seu e-mail"/>
                         </FormControl>
                         <FormControl sx={{ m: 1, width: '500px'}}>
                             <InputLabel htmlFor="senha">Senha</InputLabel>
                             <OutlinedInput
-                                id="senha"
+                                id="password"
                                 type={showPassword ? 'text' : 'password'}
                                 endAdornment={
                                 <InputAdornment position="end">
@@ -132,11 +133,11 @@ const LoginForms = () => {
                                 }
                                 label="senha"
                                 placeholder="Digite sua senha"
-                                value={formik.values.senha}
+                                value={formik.values.password}
                                 onChange={formik.handleChange}
-                                error={formik.touched.senha && Boolean(formik.errors.senha)}
+                                error={formik.touched.password && Boolean(formik.errors.password)}
                             />
-                            <FormHelperText id="senha-ajuda">{formik.touched.senha && formik.errors.senha}</FormHelperText>
+                            <FormHelperText id="senha-ajuda">{formik.touched.password && formik.errors.password}</FormHelperText>
                         </FormControl>
                         <FormControl>
                             <Box sx={{marginBottom: '20px'}} onClick={linkButton}>
