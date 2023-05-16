@@ -28,7 +28,7 @@ export default function ModalVerProduto({open, handleClose, produto}) {
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" sx={{justifyContent: 'space-around'}}>
-            Produto: {produto?.nome}
+            Produto {produto?.nome}
           </Typography>
           <Grid id="modal-modal-grid">
             <Grid>

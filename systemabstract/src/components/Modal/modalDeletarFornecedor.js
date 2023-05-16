@@ -7,30 +7,28 @@ import {
   IconButton } from '@mui/material';
 import styled from "@emotion/styled";
 import CloseIcon from '@mui/icons-material/Close';
-import useEstoque from '../../hooks/useEstoque';
-import EstoqueAtualizarForms from '../Forms/estoqueAtualizarForms';
-import MapBoxGlJs from '../MapBoxGL/mapBox';
+import useFornecedor from '../../hooks/useFornecedor';
+import FornecedorDeletarForms from '../Forms/fornecedorDeletarForms';
 
-const styleModalEstoque = {
-  position: 'relative',
+const styleModalFornecedor = {
+  position: 'absolute',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  height: '60%',
-  width: '60%',
+  height: '40%',
+  width: '40%',
   bgcolor: 'background.paper',
   border: '2px solid #000',
   borderRadius: '12px',
   boxShadow: 24,
-  p: 4,
+  p: 5,
 };
 
-const styleStackEstoque = {
-  display: 'flex',
+const styleStackFornecedor = {
   justifyContent: 'center',
   alignItems: 'center',
   position: 'relative',
-  height: '50vh'
+  height: '30vh',
 }
 
 const Item = styled(Box)(({ theme }) => ({
@@ -39,9 +37,9 @@ const Item = styled(Box)(({ theme }) => ({
   padding: '15px 15px 15px 15px',
 }));
 
-export default function ModalVisualizarEstoque({open, handleClose}) {
+export default function ModalDeletarFornecedor({open, handleClose}) {
 
-  const { estoque } = useEstoque();
+  const { fornecedorObj } = useFornecedor();
 
   return (
     <div>
@@ -52,21 +50,18 @@ export default function ModalVisualizarEstoque({open, handleClose}) {
         aria-describedby="modal-modal-description"
         aria-modal="modal-modal-grid"
       >
-        <Box sx={styleModalEstoque}>
+        <Box sx={styleModalFornecedor}>
           <Box sx={{display: 'flex', justifyContent: 'space-between'}}>
             <Typography id="modal-modal-title" variant="h5" >
-              Informações sobre o estoque
+              Escreva o nome deste fornecedor para deleta-lo [ {fornecedorObj} ]
             </Typography>
             <IconButton onClick={handleClose}>
               <CloseIcon />
             </IconButton>
           </Box>
-          <Stack sx={styleStackEstoque} direction='row' spacing={2}>
+          <Stack sx={styleStackFornecedor}>
             <Item>
-              <EstoqueAtualizarForms handleClose={handleClose}/>
-            </Item>
-            <Item>
-              <MapBoxGlJs />
+                <FornecedorDeletarForms handleClose={handleClose}/>
             </Item>
           </Stack>
         </Box>

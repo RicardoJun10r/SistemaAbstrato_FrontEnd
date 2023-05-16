@@ -6,7 +6,7 @@ import ForwardIcon from '@mui/icons-material/Forward';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AdsClickIcon from '@mui/icons-material/AdsClick';
 import ModalDeletarEstoque from '../Modal/modalDeletarEstoque';
-import ModalVisualizarModal from '../Modal/modalVerEstoque';
+import ModalVisualizarEstoque from "../Modal/modalVerEstoque";
 
 const TabelaEstoque = () => {
 
@@ -95,7 +95,7 @@ const TabelaEstoque = () => {
         }}
       />
       {deleteModal === 'false' ? null : <ModalDeletarEstoque open={deleteModal} handleClose={handleDeleteModalClose} />}
-      {visualizarModal === 'false' ? null : <ModalVisualizarModal open={visualizarModal} handleClose={handleVisualizarModalClose} />}
+      {visualizarModal === 'false' ? null : <ModalVisualizarEstoque open={visualizarModal} handleClose={handleVisualizarModalClose} />}
     </div>
   )
 }

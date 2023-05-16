@@ -7,17 +7,15 @@ import {
   IconButton } from '@mui/material';
 import styled from "@emotion/styled";
 import CloseIcon from '@mui/icons-material/Close';
-import useEstoque from '../../hooks/useEstoque';
-import EstoqueAtualizarForms from '../Forms/estoqueAtualizarForms';
-import MapBoxGlJs from '../MapBoxGL/mapBox';
+import ProdutoCriarForms from '../Forms/produtoCriarForms';
 
 const styleModalEstoque = {
-  position: 'relative',
+  position: 'absolute',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  height: '60%',
-  width: '60%',
+  height: '85%',
+  width: '40%',
   bgcolor: 'background.paper',
   border: '2px solid #000',
   borderRadius: '12px',
@@ -26,11 +24,10 @@ const styleModalEstoque = {
 };
 
 const styleStackEstoque = {
-  display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
   position: 'relative',
-  height: '50vh'
+  height: '75vh',
 }
 
 const Item = styled(Box)(({ theme }) => ({
@@ -39,10 +36,7 @@ const Item = styled(Box)(({ theme }) => ({
   padding: '15px 15px 15px 15px',
 }));
 
-export default function ModalVisualizarEstoque({open, handleClose}) {
-
-  const { estoque } = useEstoque();
-
+export default function ModalProdutoCriar({open, handleClose}) {
   return (
     <div>
       <Modal
@@ -55,18 +49,15 @@ export default function ModalVisualizarEstoque({open, handleClose}) {
         <Box sx={styleModalEstoque}>
           <Box sx={{display: 'flex', justifyContent: 'space-between'}}>
             <Typography id="modal-modal-title" variant="h5" >
-              Informações sobre o estoque
+              Preencha os valores abaixo para criar o produto
             </Typography>
             <IconButton onClick={handleClose}>
               <CloseIcon />
             </IconButton>
           </Box>
-          <Stack sx={styleStackEstoque} direction='row' spacing={2}>
+          <Stack sx={styleStackEstoque}>
             <Item>
-              <EstoqueAtualizarForms handleClose={handleClose}/>
-            </Item>
-            <Item>
-              <MapBoxGlJs />
+              <ProdutoCriarForms handleClose={handleClose}/>
             </Item>
           </Stack>
         </Box>

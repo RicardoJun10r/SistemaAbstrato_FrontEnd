@@ -1,21 +1,19 @@
 import React, { useEffect } from "react";
 import { estoqueStyle } from "./estoqueStyle";
-import BotaoAdicionar from "../../components/Button/botaoAdicionar";
 import { Box } from "@mui/material";
 import EstoqueContent from "./Content/estoqueContent";
 import ProdutoContent from "./Content/produtoContent";
 import useEstoque from "../../hooks/useEstoque";
+import BotaoAdicionarEstoque from "../../components/Button/botaoAdicionarEstoque";
 
 const Estoque = () => {
 
-    const { stock } = useEstoque();
-
-    const { indexContent } = useEstoque();
+    const { stock, indexContent } = useEstoque();
 
     useEffect(()=>{},[stock])
 
     if(stock.length === 0){
-        return <BotaoAdicionar />;
+        return <BotaoAdicionarEstoque />;
     }
 
     return(

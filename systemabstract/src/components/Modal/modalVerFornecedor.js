@@ -10,8 +10,10 @@ import CloseIcon from '@mui/icons-material/Close';
 import useEstoque from '../../hooks/useEstoque';
 import EstoqueAtualizarForms from '../Forms/estoqueAtualizarForms';
 import MapBoxGlJs from '../MapBoxGL/mapBox';
+import useFornecedor from '../../hooks/useFornecedor';
+import FornecedorAtualizarForms from '../Forms/fornecedorAtualizarForms';
 
-const styleModalEstoque = {
+const styleModalFornecedor = {
   position: 'relative',
   top: '50%',
   left: '50%',
@@ -25,7 +27,7 @@ const styleModalEstoque = {
   p: 4,
 };
 
-const styleStackEstoque = {
+const styleStackFornecedor = {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
@@ -39,9 +41,9 @@ const Item = styled(Box)(({ theme }) => ({
   padding: '15px 15px 15px 15px',
 }));
 
-export default function ModalVisualizarEstoque({open, handleClose}) {
+export default function ModalVisualizarFornecedor({open, handleClose}) {
 
-  const { estoque } = useEstoque();
+    const { fornecedorObj } = useFornecedor();
 
   return (
     <div>
@@ -52,7 +54,7 @@ export default function ModalVisualizarEstoque({open, handleClose}) {
         aria-describedby="modal-modal-description"
         aria-modal="modal-modal-grid"
       >
-        <Box sx={styleModalEstoque}>
+        <Box sx={styleModalFornecedor}>
           <Box sx={{display: 'flex', justifyContent: 'space-between'}}>
             <Typography id="modal-modal-title" variant="h5" >
               Informações sobre o estoque
@@ -61,9 +63,9 @@ export default function ModalVisualizarEstoque({open, handleClose}) {
               <CloseIcon />
             </IconButton>
           </Box>
-          <Stack sx={styleStackEstoque} direction='row' spacing={2}>
+          <Stack sx={styleStackFornecedor} direction='row' spacing={2}>
             <Item>
-              <EstoqueAtualizarForms handleClose={handleClose}/>
+              <FornecedorAtualizarForms handleClose={handleClose}/>
             </Item>
             <Item>
               <MapBoxGlJs />

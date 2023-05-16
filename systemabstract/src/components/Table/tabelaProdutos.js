@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import useEstoque from "../../hooks/useEstoque";
 import { Button } from "@mui/material";
-import ModalVerProduto from '../Modal/modalVer';
+import ModalVerProduto from '../Modal/modalProdutoVisualizar';
 import ModalDeletarProduto from '../Modal/modalDeletarProduto';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AdsClickIcon from '@mui/icons-material/AdsClick';
