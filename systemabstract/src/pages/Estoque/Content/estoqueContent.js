@@ -21,11 +21,13 @@ const EstoqueContent = () => {
     return(
         <Box>
             <Stack sx={{width: '1500px'}} spacing={2}>
-                <Box sx={{fontSize: '2em', display: 'flex', position: 'relative', justifyContent: 'space-between'}}>
-                    Estoques
-                    {open === 'false' ? null : <ModalEstoque open={open} handleClose={handleClose} />}
-                    <Button onClick={handleOpen} variant="contained">Criar estoque</Button>
-                </Box>
+                <Item>
+                    <Box sx={{fontSize: '2em', display: 'flex', position: 'relative', justifyContent: 'space-between'}}>
+                        Estoques
+                        {open === 'false' ? null : <ModalEstoque open={open} handleClose={handleClose} />}
+                        <Button onClick={handleOpen} variant="contained">Criar estoque</Button>
+                    </Box>
+                </Item>
                 <Item>
                     <TabsEstoque />
                 </Item>

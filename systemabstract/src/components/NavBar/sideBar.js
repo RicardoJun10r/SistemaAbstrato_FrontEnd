@@ -209,7 +209,7 @@ export default function SideBar({setIndex}) {
         </DrawerHeader>
         <Divider />
         <List>
-          {['Dashboard', 'Estoque', 'Clientes', 'Transações'].map((text, index) => (
+          {['Dashboard', 'Estoque', 'Fornecedores', 'Transações'].map((text, index) => (
             <ListItem key={text} disablePadding sx={{ display: 'block' }}>
               <ListItemButton
                 onClick={() => setIndex(index)}

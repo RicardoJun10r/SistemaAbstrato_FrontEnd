@@ -1,7 +1,5 @@
 import * as React from 'react';
-import { useState } from 'react';
-import { Box, Button, Typography, Modal, Grid } from '@mui/material';
-import TabelaProdutos from '../Table/tabelaProdutos';
+import { Box,Typography, Modal, Grid } from '@mui/material';
 import TabsProdutos from '../Tabs/tabsProdutos';
 
 const style = {
@@ -18,7 +16,7 @@ const style = {
   p: 4,
 };
 
-export default function ModalVer({open, handleClose, produto}) {
+export default function ModalVerProduto({open, handleClose, produto}) {
   return (
     <div>
       <Modal
@@ -30,7 +28,7 @@ export default function ModalVer({open, handleClose, produto}) {
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" sx={{justifyContent: 'space-around'}}>
-            Produto: {produto?.nome}
+            Produto {produto?.nome}
           </Typography>
           <Grid id="modal-modal-grid">
             <Grid>

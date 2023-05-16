@@ -12,6 +12,7 @@ import {
 import { useFormik } from 'formik';
 import { validationSchemaEstoqueModal } from "../../errors/FormEstoque/validationSchemaEstoqueModal";
 import { adicionar_estoque_vazio } from "../../api/api";
+import useEstoque from "../../hooks/useEstoque";
 
 const options = {
     ProdutoFisico: 'Produto Fisico',
@@ -22,6 +23,8 @@ const options = {
 
 const EstoqueCriarForms = ({handleClose}) => {
 
+    const { adicionarStock } = useEstoque();
+
     const formik = useFormik({
         initialValues:{
             nome: "",
@@ -31,6 +34,7 @@ const EstoqueCriarForms = ({handleClose}) => {
         onSubmit: (values) => {
             console.log(JSON.stringify(values)); // COLOCAR AQUI AUTENTICAÇÃO DA API
             adicionar_estoque_vazio(values);
+            adicionarStock();
             handleClose(false);
         },
         validationSchema: validationSchemaEstoqueModal

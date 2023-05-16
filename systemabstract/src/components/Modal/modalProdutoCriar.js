@@ -7,28 +7,27 @@ import {
   IconButton } from '@mui/material';
 import styled from "@emotion/styled";
 import CloseIcon from '@mui/icons-material/Close';
-import useEstoque from '../../hooks/useEstoque';
-import EstoqueDeletarForms from '../Forms/estoqueDeletarForms';
+import ProdutoCriarForms from '../Forms/produtoCriarForms';
 
 const styleModalEstoque = {
   position: 'absolute',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  height: '40%',
+  height: '85%',
   width: '40%',
   bgcolor: 'background.paper',
   border: '2px solid #000',
   borderRadius: '12px',
   boxShadow: 24,
-  p: 5,
+  p: 4,
 };
 
 const styleStackEstoque = {
   justifyContent: 'center',
   alignItems: 'center',
   position: 'relative',
-  height: '30vh',
+  height: '75vh',
 }
 
 const Item = styled(Box)(({ theme }) => ({
@@ -37,10 +36,7 @@ const Item = styled(Box)(({ theme }) => ({
   padding: '15px 15px 15px 15px',
 }));
 
-export default function ModalDeletarEstoque({open, handleClose}) {
-
-  const { estoque } = useEstoque();
-
+export default function ModalProdutoCriar({open, handleClose}) {
   return (
     <div>
       <Modal
@@ -53,7 +49,7 @@ export default function ModalDeletarEstoque({open, handleClose}) {
         <Box sx={styleModalEstoque}>
           <Box sx={{display: 'flex', justifyContent: 'space-between'}}>
             <Typography id="modal-modal-title" variant="h5" >
-              Escreva o nome deste estoque para deleta-lo [ {estoque} ]
+              Preencha os valores abaixo para criar o produto
             </Typography>
             <IconButton onClick={handleClose}>
               <CloseIcon />
@@ -61,7 +57,7 @@ export default function ModalDeletarEstoque({open, handleClose}) {
           </Box>
           <Stack sx={styleStackEstoque}>
             <Item>
-              <EstoqueDeletarForms handleClose={handleClose}/>
+              <ProdutoCriarForms handleClose={handleClose}/>
             </Item>
           </Stack>
         </Box>

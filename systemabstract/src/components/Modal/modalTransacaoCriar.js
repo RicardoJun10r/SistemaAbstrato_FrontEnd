@@ -7,28 +7,26 @@ import {
   IconButton } from '@mui/material';
 import styled from "@emotion/styled";
 import CloseIcon from '@mui/icons-material/Close';
-import useEstoque from '../../hooks/useEstoque';
-import EstoqueDeletarForms from '../Forms/estoqueDeletarForms';
+import CarrinhoCriarForms from '../Forms/carrinhoCriarForms';
 
-const styleModalEstoque = {
+const styleModalTransacao = {
   position: 'absolute',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  height: '40%',
-  width: '40%',
+  height: '50%',
+  width: '50%',
   bgcolor: 'background.paper',
   border: '2px solid #000',
   borderRadius: '12px',
   boxShadow: 24,
-  p: 5,
+  p: 4,
 };
 
-const styleStackEstoque = {
+const styleStackTransacao = {
   justifyContent: 'center',
   alignItems: 'center',
   position: 'relative',
-  height: '30vh',
 }
 
 const Item = styled(Box)(({ theme }) => ({
@@ -37,10 +35,7 @@ const Item = styled(Box)(({ theme }) => ({
   padding: '15px 15px 15px 15px',
 }));
 
-export default function ModalDeletarEstoque({open, handleClose}) {
-
-  const { estoque } = useEstoque();
-
+export default function ModalTransacaoCriar({open, handleClose}) {
   return (
     <div>
       <Modal
@@ -50,18 +45,18 @@ export default function ModalDeletarEstoque({open, handleClose}) {
         aria-describedby="modal-modal-description"
         aria-modal="modal-modal-grid"
       >
-        <Box sx={styleModalEstoque}>
+        <Box sx={styleModalTransacao}>
           <Box sx={{display: 'flex', justifyContent: 'space-between'}}>
             <Typography id="modal-modal-title" variant="h5" >
-              Escreva o nome deste estoque para deleta-lo [ {estoque} ]
+              Adicione os produtos no carrinho
             </Typography>
             <IconButton onClick={handleClose}>
               <CloseIcon />
             </IconButton>
           </Box>
-          <Stack sx={styleStackEstoque}>
+          <Stack sx={styleStackTransacao}>
             <Item>
-              <EstoqueDeletarForms handleClose={handleClose}/>
+              <CarrinhoCriarForms />
             </Item>
           </Stack>
         </Box>

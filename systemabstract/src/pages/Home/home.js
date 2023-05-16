@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import SideBar from "../../components/NavBar/sideBar";
 import { homeStyle } from "./styleHome";
 import DashBoard from "../DashBoard/dashboard";
-import Estoque from "../Estoque/estoque";
-import Clientes from "../Clientes/clientes";
 import Transacoes from "../Transacoes/transacoes";
 import { Box, CssBaseline} from "@mui/material";
 import SetEstoque from "../Estoque/utils/setEstoque";
+import SetFornecedor from "../Fornecedores/utils/setFornecedores";
 
 const Home = () => {
 
@@ -19,7 +18,7 @@ const Home = () => {
             case 1:
                 return <SetEstoque />;
             case 2:
-                return <Clientes />;
+                return <SetFornecedor />;
             case 3:
                 return <Transacoes />;
             default:

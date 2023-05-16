@@ -7,10 +7,11 @@ import {
   IconButton } from '@mui/material';
 import styled from "@emotion/styled";
 import CloseIcon from '@mui/icons-material/Close';
-import useEstoque from '../../hooks/useEstoque';
-import EstoqueDeletarForms from '../Forms/estoqueDeletarForms';
+import useFornecedor from '../../hooks/useFornecedor';
+import FornecedorDeletarForms from '../Forms/fornecedorDeletarForms';
+import TransacaoDeletarForms from '../Forms/transacaoDeletarForms';
 
-const styleModalEstoque = {
+const styleModalFornecedor = {
   position: 'absolute',
   top: '50%',
   left: '50%',
@@ -24,7 +25,7 @@ const styleModalEstoque = {
   p: 5,
 };
 
-const styleStackEstoque = {
+const styleStackFornecedor = {
   justifyContent: 'center',
   alignItems: 'center',
   position: 'relative',
@@ -37,9 +38,7 @@ const Item = styled(Box)(({ theme }) => ({
   padding: '15px 15px 15px 15px',
 }));
 
-export default function ModalDeletarEstoque({open, handleClose}) {
-
-  const { estoque } = useEstoque();
+export default function ModalDeletarTransacao({open, handleClose, transacao}) {
 
   return (
     <div>
@@ -50,18 +49,18 @@ export default function ModalDeletarEstoque({open, handleClose}) {
         aria-describedby="modal-modal-description"
         aria-modal="modal-modal-grid"
       >
-        <Box sx={styleModalEstoque}>
+        <Box sx={styleModalFornecedor}>
           <Box sx={{display: 'flex', justifyContent: 'space-between'}}>
             <Typography id="modal-modal-title" variant="h5" >
-              Escreva o nome deste estoque para deleta-lo [ {estoque} ]
+              Escreva o nome deste fornecedor para deleta-lo [ {transacao} ]
             </Typography>
             <IconButton onClick={handleClose}>
               <CloseIcon />
             </IconButton>
           </Box>
-          <Stack sx={styleStackEstoque}>
+          <Stack sx={styleStackFornecedor}>
             <Item>
-              <EstoqueDeletarForms handleClose={handleClose}/>
+                <TransacaoDeletarForms handleClose={handleClose} transacao={transacao}/>
             </Item>
           </Stack>
         </Box>

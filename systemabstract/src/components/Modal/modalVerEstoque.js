@@ -39,9 +39,9 @@ const Item = styled(Box)(({ theme }) => ({
   padding: '15px 15px 15px 15px',
 }));
 
-export default function ModalVisualizarModal({open, handleClose}) {
+export default function ModalVisualizarEstoque({open, handleClose}) {
 
-  const { produto } = useEstoque();
+  const { estoque } = useEstoque();
 
   return (
     <div>
