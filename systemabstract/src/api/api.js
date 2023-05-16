@@ -1,3 +1,22 @@
+import axios from 'axios'
+
+const aplicacao = axios.create({
+    baseURL: 'http://localhost:8081/'
+})
+
+export const Cadastrar = async (name, login, password) => {
+    console.log(name)
+    await aplicacao.post('/user',
+    {
+        name: name,
+        login: login,
+        password: password,
+        permission: 1
+    }).then(response => {
+        console.log(response.data + " " + response.status)
+    }).catch(error => console.log(error.message))
+}
+
 export const inventario = [
     {
         nome: 'tomate',

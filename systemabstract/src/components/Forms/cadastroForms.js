@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { 
     styled,
     Box,
@@ -20,6 +20,7 @@ import { useFormik } from 'formik';
 import { validationSchemaCadastro } from '../../errors/FormCadastro/mensagensErro';
 import { useNavigate } from 'react-router-dom';
 import useAuth from "../../hooks/useAuth";
+import { Cadastrar } from "../../api/api";
 
 const Item = styled(Box)(({ theme }) => ({
     backgroundColor: 'inherit',
@@ -43,14 +44,14 @@ const CadastroForms = () => {
 
     const formik = useFormik({
         initialValues:{
-            nome: "",
-            email: "",
-            cpf: "",
-            senha: "",
+            name: "",
+            login: "",
+            password: "",
             senhaConfirmada: "",
         },
         onSubmit: (values) => {
             console.log(JSON.stringify(values));
+            signUp()
             handleSignUp()
         },
         validationSchema: validationSchemaCadastro
@@ -73,10 +74,16 @@ const CadastroForms = () => {
 
     const handleMouseDownPasswordConfirmed = (event) => {
         event.preventDefault();
-      };
+    };
 
-      function handleSignUp(){
-        const res = registrar(formik.values.email, formik.values.senha);
+    function signUp(){
+        console.log(formik.values.login)
+        Cadastrar( formik.values.name, formik.values.login, formik.values.password );
+        navigate("/login");
+    }
+
+    function handleSignUp(){
+        const res = registrar(formik.values.login, formik.values.password);
     
         if (res) {
           console.log(res);
@@ -105,51 +112,36 @@ const CadastroForms = () => {
                         <FormControl sx={{ m: 1, width: '500px' }}>
                             <InputLabel htmlFor="nome">Nome</InputLabel>
                             <OutlinedInput
-                                id="nome"
+                                id="name"
                                 type="text"
                                 endAdornment={<InputAdornment position="start"></InputAdornment>}
                                 label="Nome"
-                                value={formik.values.nome}
+                                value={formik.values.name}
                                 placeholder="Digite seu nome"
                                 onChange={formik.handleChange}
-                                error={formik.touched.nome && Boolean(formik.errors.nome)}
+                                error={formik.touched.name && Boolean(formik.errors.name)}
                             />
-                            <FormHelperText id='nome-ajuda' >{formik.touched.nome && formik.errors.nome}</FormHelperText>
+                            <FormHelperText id='nome-ajuda' >{formik.touched.name && formik.errors.name}</FormHelperText>
                         </FormControl>
                         <FormControl sx={{ m: 1, width: '500px' }}>
                             <InputLabel htmlFor="email">E-mail</InputLabel>
                             <OutlinedInput
-                                id="email"
+                                id="login"
                                 type="email"
                                 endAdornment={<InputAdornment position="start"></InputAdornment>}
                                 label="E-mail"
                                 placeholder="Digite seu e-mail"
                                 autoComplete="on"
-                                value={formik.values.email}
+                                value={formik.values.login}
                                 onChange={formik.handleChange}
-                                error={formik.touched.email && Boolean(formik.errors.email)}
+                                error={formik.touched.login && Boolean(formik.errors.login)}
                             />
-                            <FormHelperText id='email-ajuda' >{formik.touched.email && formik.errors.email}</FormHelperText>
-                        </FormControl>
-                        <FormControl sx={{ m: 1, width: '500px' }}>
-                            <InputLabel htmlFor="cpf">CPF</InputLabel>
-                            <OutlinedInput
-                                id="cpf"
-                                type="text"
-                                endAdornment={<InputAdornment position="start"></InputAdornment>}
-                                label="CPF"
-                                placeholder="Digite seu CPF"
-                                autoComplete="on"
-                                value={formik.values.cpf}
-                                onChange={formik.handleChange}
-                                error={formik.touched.cpf && Boolean(formik.errors.cpf)}
-                            />
-                            <FormHelperText id='cpf-ajuda' >{formik.touched.cpf && formik.errors.cpf}</FormHelperText>
+                            <FormHelperText id='email-ajuda' >{formik.touched.login && formik.errors.login}</FormHelperText>
                         </FormControl>
                         <FormControl sx={{ m: 1, width: '500px' }} variant="outlined">
                             <InputLabel htmlFor="senha">Senha</InputLabel>
                                 <OutlinedInput
-                                    id="senha"
+                                    id="password"
                                     type={showPassword ? 'text' : 'password'}
                                     placeholder="Digite sua senha"
                                     autoComplete="off"
@@ -166,11 +158,11 @@ const CadastroForms = () => {
                                     </InputAdornment>
                                     }
                                     label="Senha"
-                                    value={formik.values.senha}
+                                    value={formik.values.password}
                                     onChange={formik.handleChange}
-                                    error={formik.touched.senha && Boolean(formik.errors.senha)}
+                                    error={formik.touched.password && Boolean(formik.errors.password)}
                                 />
-                            <FormHelperText id='senha-ajuda' >{formik.touched.senha && formik.errors.senha}</FormHelperText>
+                            <FormHelperText id='senha-ajuda' >{formik.touched.password && formik.errors.password}</FormHelperText>
                         </FormControl>
                         <FormControl sx={{ m: 1, width: '500px' }} variant="outlined">
                             <InputLabel htmlFor="senhaConfirmada">Confirme a senha</InputLabel>
