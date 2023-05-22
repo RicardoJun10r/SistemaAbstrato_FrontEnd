@@ -48,8 +48,7 @@ const LoginForms = () => {
             password: ""
         },
         onSubmit: (values) => {
-            // console.log(JSON.stringify(values)); // COLOCAR AQUI AUTENTICAÇÃO DA API
-            handleLogin()
+            handleLogin(values)
         },
         validationSchema: validationSchemaLogin
     })
@@ -68,9 +67,9 @@ const LoginForms = () => {
       event.preventDefault();
     };
 
-    const handleLogin = () => {
+    const handleLogin = (values) => {
 
-        const res = autenticar(formik.values.login, formik.values.password);
+        const res = autenticar(values.login, values.password);
     
         if (!res) {
           console.log("res: " + res);

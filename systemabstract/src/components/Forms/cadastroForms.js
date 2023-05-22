@@ -51,7 +51,7 @@ const CadastroForms = () => {
         },
         onSubmit: (values) => {
             console.log(JSON.stringify(values));
-            handleSignUp()
+            handleSignUp(values)
         },
         validationSchema: validationSchemaCadastro
     })
@@ -75,8 +75,8 @@ const CadastroForms = () => {
         event.preventDefault();
     };
 
-    function handleSignUp(){
-        const res = registrar(formik.values.name, formik.values.login, formik.values.password);
+    function handleSignUp(values){
+        const res = registrar(values.name, values.login, values.password);
     
         if (!res) {
           console.log(res);
